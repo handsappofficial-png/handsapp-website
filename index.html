@@ -1,11 +1,591 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>HandsApp Messenger</title>
-    <meta http-equiv="refresh" content="0;url=privacy-policy.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HandsApp - Private and secure messaging with chat, voice, status, groups, events and more. No ads. Made in India.">
+    <meta name="keywords" content="HandsApp, messaging app, secure chat, private messaging, India, WhatsApp alternative">
+    <meta property="og:title" content="HandsApp - Private & Secure Messaging">
+    <meta property="og:description" content="Connect. Share. Together. Private messaging with full control over who can reach you.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://handsapp.in">
+    <title>HandsApp - Private & Secure Messaging</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f7fa;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: white;
+            padding: 16px 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #1D9E75;
+        }
+
+        .nav-logo img {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            margin-right: 10px;
+        }
+
+        .nav-logo span {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .nav-links a, .nav-links span.email-copy {
+            color: #555;
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover, .nav-links span.email-copy:hover {
+            color: #1D9E75;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #1D9E75 0%, #157a5a 100%);
+            color: white;
+            padding: 80px 20px 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero img {
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 12px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .hero .tagline {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-bottom: 32px;
+            font-weight: 400;
+        }
+
+        .hero .subhead {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 36px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #1D9E75;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.4);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.25);
+            border-color: white;
+        }
+
+        /* Section */
+        .section {
+            padding: 80px 20px;
+        }
+
+        .section-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #1D9E75;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Features grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 14px;
+            padding: 28px 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-top: 4px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        .feature-card:nth-child(1) { border-top-color: #1D9E75; }
+        .feature-card:nth-child(2) { border-top-color: #378ADD; }
+        .feature-card:nth-child(3) { border-top-color: #7B1FA2; }
+        .feature-card:nth-child(4) { border-top-color: #D4A017; }
+        .feature-card:nth-child(5) { border-top-color: #D85A30; }
+        .feature-card:nth-child(6) { border-top-color: #1D9E75; }
+
+        .feature-icon {
+            font-size: 2.4rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .feature-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .feature-desc {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Why different section */
+        .why-section {
+            background: linear-gradient(135deg, #1D9E75 0%, #157a5a 100%);
+            color: white;
+        }
+
+        .why-section .section-title {
+            color: white;
+        }
+
+        .why-section .section-subtitle {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .why-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 14px;
+            padding: 28px 24px;
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .why-card-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .why-card-title .check {
+            margin-right: 10px;
+            font-size: 1.4rem;
+        }
+
+        .why-card-desc {
+            opacity: 0.9;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* CTA section */
+        .cta-section {
+            text-align: center;
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .cta-section h2 {
+            font-size: 2.2rem;
+            color: #1D9E75;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: #1D9E75;
+            color: white;
+            padding: 16px 36px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            box-shadow: 0 4px 12px rgba(29, 158, 117, 0.3);
+            transition: all 0.2s;
+        }
+
+        .download-btn:hover {
+            background: #157a5a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(29, 158, 117, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: #2d3748;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .footer-logo img {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            margin-right: 12px;
+        }
+
+        .footer-logo span {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .footer-tagline {
+            font-size: 0.95rem;
+            opacity: 0.85;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a, .footer-links span.email-copy {
+            color: #5dd4a3;
+            text-decoration: none;
+            margin: 0 12px;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        .footer-links a:hover, .footer-links span.email-copy:hover {
+            text-decoration: underline;
+        }
+
+        .footer-text {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* Copy toast notification */
+        .copy-toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #1D9E75;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            opacity: 0;
+            z-index: 1000;
+        }
+
+        .copy-toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        @media (max-width: 600px) {
+            .hero { padding: 60px 20px 80px; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero .tagline { font-size: 1.1rem; }
+            .hero .subhead { font-size: 1rem; }
+            .section-title { font-size: 1.8rem; }
+            .section { padding: 60px 20px; }
+            .nav-links a, .nav-links span.email-copy { margin: 0 8px; font-size: 0.85rem; }
+            .nav-logo span { font-size: 1.1rem; }
+            .cta-buttons { flex-direction: column; }
+            .btn { width: 100%; max-width: 280px; }
+        }
+    </style>
 </head>
 <body>
-    <p>Redirecting to <a href="privacy-policy.html">Privacy Policy</a>...</p>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+            <img src="play_store_icon_512.png" alt="HandsApp Logo">
+            <span>HandsApp</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="privacy-policy.html">Privacy</a>
+            <span class="email-copy" data-email="support@handsapp.in">Support</span>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="hero-content">
+        <img src="play_store_icon_512.png" alt="HandsApp Logo">
+        <h1>HandsApp</h1>
+        <div class="tagline">Connect. Share. Together.</div>
+        <p class="subhead">Private and secure messaging with chat, voice, status, groups, events, channels and more. No ads. Built with privacy at its core.</p>
+        <div class="cta-buttons">
+            <a href="https://play.google.com/store/apps/details?id=com.handsapp.messenger" class="btn btn-primary" target="_blank" rel="noopener">Download on Google Play</a>
+            <a href="about.html" class="btn btn-secondary">Learn More</a>
+        </div>
+    </div>
+</section>
+
+<!-- Features -->
+<section class="section">
+    <div class="section-container">
+        <h2 class="section-title">Everything You Need</h2>
+        <p class="section-subtitle">Built for modern communication with a focus on privacy, simplicity, and expression.</p>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">🔒</span>
+                <h3 class="feature-title">Secure Messaging</h3>
+                <p class="feature-desc">Private one-on-one and group chats with end-to-end transmission security. Your conversations stay yours.</p>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">👫</span>
+                <h3 class="feature-title">Friend Request System</h3>
+                <p class="feature-desc">Two-way friend request system gives you complete control over who can message you. No more unwanted messages.</p>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">📅</span>
+                <h3 class="feature-title">Events & RSVPs</h3>
+                <p class="feature-desc">Plan get-togethers with built-in events. Share details, track attendees, and coordinate effortlessly.</p>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">📡</span>
+                <h3 class="feature-title">Channels & Marketplace</h3>
+                <p class="feature-desc">Create channels to broadcast to your audience. Discover and follow channels in the marketplace.</p>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">📷</span>
+                <h3 class="feature-title">24-Hour Status</h3>
+                <p class="feature-desc">Share photos, videos, and moments that disappear after 24 hours. Only your contacts can see them.</p>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">🎨</span>
+                <h3 class="feature-title">Personalize Everything</h3>
+                <p class="feature-desc">Custom text styles, colors, wallpapers, and themes. Make HandsApp truly yours.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why HandsApp -->
+<section class="section why-section">
+    <div class="section-container">
+        <h2 class="section-title">Why HandsApp Is Different</h2>
+        <p class="section-subtitle">We respect your privacy, your time, and your data.</p>
+
+        <div class="why-grid">
+            <div class="why-card">
+                <h3 class="why-card-title"><span class="check">✓</span>No Ads, Ever</h3>
+                <p class="why-card-desc">Your attention isn't sold to advertisers. HandsApp is free with no ads, ever. Pure messaging, no distractions.</p>
+            </div>
+
+            <div class="why-card">
+                <h3 class="why-card-title"><span class="check">✓</span>You Choose Who Reaches You</h3>
+                <p class="why-card-desc">Unlike other messaging apps, no one can message you without your permission. Send and accept friend requests on your terms.</p>
+            </div>
+
+            <div class="why-card">
+                <h3 class="why-card-title"><span class="check">✓</span>Your Data, Your Control</h3>
+                <p class="why-card-desc">Compliant with India's Digital Personal Data Protection Act. Delete your account anytime from within the app.</p>
+            </div>
+
+            <div class="why-card">
+                <h3 class="why-card-title"><span class="check">✓</span>Built in India</h3>
+                <p class="why-card-desc">Engineered by HandsApp Pvt. Ltd. in Delhi. Optimized for Indian networks and devices, designed for everyone.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <h2>Ready to Get Started?</h2>
+    <p>Download HandsApp and reconnect with the people who matter — privately, simply, and ad-free.</p>
+    <a href="https://play.google.com/store/apps/details?id=com.handsapp.messenger" class="download-btn" target="_blank" rel="noopener">Get HandsApp on Google Play</a>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-logo">
+        <img src="play_store_icon_512.png" alt="HandsApp Logo">
+        <span>HandsApp</span>
+    </div>
+    <div class="footer-tagline">Connect. Share. Together.</div>
+    <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <span class="email-copy" data-email="support@handsapp.in">Support</span>
+        <span class="email-copy" data-email="grievance@handsapp.in">Grievance</span>
+    </div>
+    <div class="footer-text">
+        © 2026 HandsApp Pvt. Ltd. All rights reserved.<br>
+        C-14, Third Floor, C-Block, Pandav Nagar, Delhi - 110092, India
+    </div>
+</footer>
+
+<!-- Copy toast notification -->
+<div class="copy-toast" id="copyToast">Email copied to clipboard!</div>
+
+<script>
+    // Copy email to clipboard on click
+    document.querySelectorAll('.email-copy').forEach(el => {
+        el.addEventListener('click', function() {
+            const email = this.getAttribute('data-email');
+            navigator.clipboard.writeText(email).then(() => {
+                showToast('Email copied: ' + email);
+            }).catch(() => {
+                // Fallback for older browsers
+                const textarea = document.createElement('textarea');
+                textarea.value = email;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                showToast('Email copied: ' + email);
+            });
+        });
+    });
+
+    function showToast(message) {
+        const toast = document.getElementById('copyToast');
+        toast.textContent = message;
+        toast.classList.add('show');
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 2500);
+    }
+</script>
+
 </body>
 </html>

@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About HandsApp - A modern cloud-native messaging platform designed to bring people closer. Built with privacy at its core.">
+    <meta name="keywords" content="HandsApp, messaging app, secure chat, privacy, India, HandsApp Pvt Ltd">
+    <title>About HandsApp - Modern Private Messaging</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f7fa;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1D9E75 0%, #157a5a 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .header img {
+            width: 90px;
+            height: 90px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .header .tagline {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+
+        .nav-links {
+            background: white;
+            padding: 12px 20px;
+            text-align: center;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .nav-links a, .nav-links span.email-copy {
+            color: #1D9E75;
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover, .nav-links span.email-copy:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        .section {
+            background: white;
+            border-radius: 14px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .section-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 14px;
+            padding-left: 4px;
+        }
+
+        .section.about .section-title { color: #1D9E75; }
+        .section.about { background: rgba(29, 158, 117, 0.06); border-left: 4px solid #1D9E75; }
+
+        .section.features .section-title { color: #378ADD; }
+        .section.features { background: rgba(55, 138, 221, 0.06); border-left: 4px solid #378ADD; }
+
+        .section.whats-new .section-title { color: #7B1FA2; }
+        .section.whats-new { background: rgba(123, 31, 162, 0.06); border-left: 4px solid #7B1FA2; }
+
+        .section.app-info .section-title { color: #D4A017; }
+        .section.app-info { background: rgba(212, 160, 23, 0.06); border-left: 4px solid #D4A017; }
+
+        .section.disclaimer .section-title { color: #D85A30; }
+        .section.disclaimer { background: rgba(216, 90, 48, 0.06); border-left: 4px solid #D85A30; }
+
+        .section.terms .section-title { color: #378ADD; }
+        .section.terms { background: rgba(55, 138, 221, 0.06); border-left: 4px solid #378ADD; }
+
+        .section p {
+            color: #444;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .email-inline {
+            color: #D85A30;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 12px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 14px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .feature-icon {
+            font-size: 1.4rem;
+            margin-right: 12px;
+            width: 32px;
+            text-align: center;
+        }
+
+        .feature-text {
+            font-size: 0.92rem;
+            color: #333;
+        }
+
+        .updates-list, .terms-list {
+            list-style: none;
+        }
+
+        .updates-list li, .terms-list li {
+            padding: 6px 0 6px 20px;
+            position: relative;
+            font-size: 0.92rem;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .updates-list li:before {
+            content: "•";
+            position: absolute;
+            left: 4px;
+            color: #7B1FA2;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .terms-list li:before {
+            content: "•";
+            position: absolute;
+            left: 4px;
+            color: #378ADD;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(212, 160, 23, 0.15);
+            font-size: 0.95rem;
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            color: #666;
+            font-weight: 500;
+        }
+
+        .info-value {
+            color: #333;
+            font-weight: 600;
+        }
+
+        .footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+
+        .footer-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .footer-logo img {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            margin-right: 12px;
+        }
+
+        .footer-logo span {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .footer-tagline {
+            font-size: 0.95rem;
+            opacity: 0.85;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            margin-bottom: 16px;
+        }
+
+        .footer-links a, .footer-links span.email-copy {
+            color: #5dd4a3;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        .footer-links a:hover, .footer-links span.email-copy:hover {
+            text-decoration: underline;
+        }
+
+        .footer-text {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .download-section {
+            text-align: center;
+            padding: 30px 20px;
+            background: white;
+            margin: 0 0 20px 0;
+            border-radius: 14px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .download-section h3 {
+            color: #1D9E75;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .download-section p {
+            color: #666;
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: #1D9E75;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 2px 6px rgba(29, 158, 117, 0.3);
+            transition: all 0.2s;
+        }
+
+        .download-btn:hover {
+            background: #157a5a;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(29, 158, 117, 0.4);
+        }
+
+        /* Copy toast notification */
+        .copy-toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #1D9E75;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            opacity: 0;
+            z-index: 1000;
+        }
+
+        .copy-toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 { font-size: 1.8rem; }
+            .header .tagline { font-size: 1rem; }
+            .features-list { grid-template-columns: 1fr; }
+            .section { padding: 18px; }
+            .container { padding: 20px 14px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <img src="play_store_icon_512.png" alt="HandsApp Logo">
+    <h1>HandsApp</h1>
+    <div class="tagline">Connect. Share. Together.</div>
+</div>
+
+<div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <span class="email-copy" data-email="support@handsapp.in">Support</span>
+</div>
+
+<div class="container">
+
+    <div class="section about">
+        <div class="section-title">About</div>
+        <p>HandsApp is a modern cloud-native messaging platform designed to bring people closer. With secure messaging, group chats, events, channels, and status updates — HandsApp makes communication simple, expressive, and private.</p>
+        <p>Built with a focus on privacy and user experience, HandsApp features a unique two-way friend request system that gives you full control over who can message you. Create channels to share content with the world, organize events, customize your chat experience, and stay connected with the people who matter most.</p>
+    </div>
+
+    <div class="section features">
+        <div class="section-title">Key Features</div>
+        <div class="features-list">
+            <div class="feature-item"><span class="feature-icon">🔒</span><span class="feature-text">Secure private messaging</span></div>
+            <div class="feature-item"><span class="feature-icon">👥</span><span class="feature-text">Group chats with admin controls</span></div>
+            <div class="feature-item"><span class="feature-icon">📅</span><span class="feature-text">Events with file sharing and event chat</span></div>
+            <div class="feature-item"><span class="feature-icon">📷</span><span class="feature-text">24-hour status with photo and video</span></div>
+            <div class="feature-item"><span class="feature-icon">👫</span><span class="feature-text">Two-way friend request system</span></div>
+            <div class="feature-item"><span class="feature-icon">📈</span><span class="feature-text">Marketplace to discover public channels</span></div>
+            <div class="feature-item"><span class="feature-icon">📡</span><span class="feature-text">Create and manage your own channels</span></div>
+            <div class="feature-item"><span class="feature-icon">👍</span><span class="feature-text">Reactions and anonymous comments</span></div>
+            <div class="feature-item"><span class="feature-icon">✍️</span><span class="feature-text">Custom text styles and fonts</span></div>
+            <div class="feature-item"><span class="feature-icon">🎨</span><span class="feature-text">Text color customization</span></div>
+            <div class="feature-item"><span class="feature-icon">🖼️</span><span class="feature-text">Chat wallpapers with patterns</span></div>
+            <div class="feature-item"><span class="feature-icon">⭐</span><span class="feature-text">Star and pin important messages</span></div>
+            <div class="feature-item"><span class="feature-icon">🌙</span><span class="feature-text">Light, Dark, and System themes</span></div>
+            <div class="feature-item"><span class="feature-icon">⬇️</span><span class="feature-text">Direct file downloads to storage</span></div>
+        </div>
+    </div>
+
+    <div class="section whats-new">
+        <div class="section-title">What's New in 1.1.0</div>
+        <ul class="updates-list">
+            <li>Marketplace — Discover and follow public channels</li>
+            <li>Channels — Create, post photos and videos</li>
+            <li>Reactions and anonymous comments on posts</li>
+            <li>Text Style — 6 custom fonts for chat messages</li>
+            <li>Text Color — 10 color options for messages</li>
+            <li>Pattern wallpapers — Dots, Lines, Grid, Bubbles</li>
+            <li>Dark and Midnight Blue wallpapers</li>
+            <li>Channel analytics for owners</li>
+            <li>Improved file downloads to local storage</li>
+            <li>Firebase security rules for data protection</li>
+        </ul>
+    </div>
+
+    <div class="section app-info">
+        <div class="section-title">App Info</div>
+        <div class="info-row">
+            <span class="info-label">App Name</span>
+            <span class="info-value">HandsApp Messenger</span>
+        </div>
+        <div class="info-row">
+            <span class="info-label">Version</span>
+            <span class="info-value">1.1.0</span>
+        </div>
+        <div class="info-row">
+            <span class="info-label">Developer</span>
+            <span class="info-value">HandsApp Pvt. Ltd.</span>
+        </div>
+        <div class="info-row">
+            <span class="info-label">Platform</span>
+            <span class="info-value">Android</span>
+        </div>
+        <div class="info-row">
+            <span class="info-label">Country</span>
+            <span class="info-value">India</span>
+        </div>
+    </div>
+
+    <div class="download-section">
+        <h3>Get HandsApp</h3>
+        <p>Available on Google Play Store</p>
+        <a href="https://play.google.com/store/apps/details?id=com.handsapp.messenger" class="download-btn" target="_blank" rel="noopener">Download Now</a>
+    </div>
+
+    <div class="section disclaimer">
+        <div class="section-title">Disclaimer</div>
+        <p>HandsApp is provided "as is" without warranties of any kind, either express or implied. HandsApp Pvt. Ltd. does not guarantee uninterrupted or error-free service.</p>
+        <p>Users are solely responsible for the content they share, post, or transmit through this application. HandsApp does not monitor, endorse, or take responsibility for user-generated content including messages, media, channel posts, or comments.</p>
+        <p>HandsApp Pvt. Ltd. shall not be liable for any direct, indirect, incidental, or consequential damages arising from the use or inability to use this application.</p>
+        <p>By using HandsApp, you agree to comply with all applicable laws and regulations. Any misuse of the platform including harassment, spam, or sharing illegal content may result in account suspension.</p>
+        <p>HandsApp reserves the right to modify, suspend, or discontinue any part of the service at any time without prior notice.</p>
+        <p>For concerns or queries, contact us at <span class="email-inline email-copy" data-email="support@handsapp.in">support@handsapp.in</span>.</p>
+    </div>
+
+    <div class="section terms">
+        <div class="section-title">Terms of Use</div>
+        <ul class="terms-list">
+            <li>You must be 18 years or older to use HandsApp</li>
+            <li>You are responsible for keeping your account secure</li>
+            <li>Do not use HandsApp for illegal or harmful activities</li>
+            <li>Do not impersonate others or create misleading channels</li>
+            <li>Respect other users and their privacy</li>
+            <li>Do not share copyrighted content without permission</li>
+            <li>HandsApp may collect anonymous usage data to improve the app</li>
+            <li>Your phone number is used for account verification only</li>
+            <li>Channel posts marked as public are visible to all users</li>
+            <li>HandsApp Pvt. Ltd. reserves the right to terminate accounts that violate these terms</li>
+        </ul>
+    </div>
+
+</div>
+
+<div class="footer">
+    <div class="footer-logo">
+        <img src="play_store_icon_512.png" alt="HandsApp Logo">
+        <span>HandsApp</span>
+    </div>
+    <div class="footer-tagline">Connect. Share. Together.</div>
+    <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <span class="email-copy" data-email="support@handsapp.in">Support</span>
+        <span class="email-copy" data-email="grievance@handsapp.in">Grievance</span>
+    </div>
+    <div class="footer-text">
+        © 2026 HandsApp Pvt. Ltd. All rights reserved.<br>
+        C-14, Third Floor, C-Block, Pandav Nagar, Delhi - 110092, India
+    </div>
+</div>
+
+<!-- Copy toast notification -->
+<div class="copy-toast" id="copyToast">Email copied to clipboard!</div>
+
+<script>
+    // Copy email to clipboard on click
+    document.querySelectorAll('.email-copy').forEach(el => {
+        el.addEventListener('click', function() {
+            const email = this.getAttribute('data-email');
+            navigator.clipboard.writeText(email).then(() => {
+                showToast('Email copied: ' + email);
+            }).catch(() => {
+                // Fallback for older browsers
+                const textarea = document.createElement('textarea');
+                textarea.value = email;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                showToast('Email copied: ' + email);
+            });
+        });
+    });
+
+    function showToast(message) {
+        const toast = document.getElementById('copyToast');
+        toast.textContent = message;
+        toast.classList.add('show');
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 2500);
+    }
+</script>
+
+</body>
+</html>
