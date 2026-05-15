@@ -35,8 +35,16 @@
 
         .header h1 {
             font-size: 2.2rem;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
             font-weight: 700;
+        }
+
+        .header .subtitle {
+            font-size: 1.3rem;
+            font-weight: 500;
+            opacity: 0.9;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
         }
 
         .header .tagline {
@@ -322,6 +330,7 @@
 
         @media (max-width: 600px) {
             .header h1 { font-size: 1.8rem; }
+            .header .subtitle { font-size: 1.05rem; }
             .header .tagline { font-size: 1rem; }
             .features-list { grid-template-columns: 1fr; }
             .section { padding: 18px; }
@@ -334,6 +343,7 @@
 <div class="header">
     <img src="play_store_icon_512.png" alt="HandsApp Logo">
     <h1>HandsApp</h1>
+    <div class="subtitle">Messenger</div>
     <div class="tagline">Connect. Share. Together.</div>
 </div>
 
@@ -449,7 +459,7 @@
 <div class="footer">
     <div class="footer-logo">
         <img src="play_store_icon_512.png" alt="HandsApp Logo">
-        <span>HandsApp</span>
+        <span>HandsApp Messenger</span>
     </div>
     <div class="footer-tagline">Connect. Share. Together.</div>
     <div class="footer-links">
