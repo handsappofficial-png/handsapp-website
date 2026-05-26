@@ -1,600 +1,1125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="HandsApp - Private and secure messaging with chat, voice, status, groups, events and more. No ads. Made in India.">
-    <meta name="keywords" content="HandsApp, messaging app, secure chat, private messaging, India, WhatsApp alternative">
-    <meta property="og:title" content="HandsApp - Private & Secure Messaging">
-    <meta property="og:description" content="Connect. Share. Together. Private messaging with full control over who can reach you.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://handsapp.in">
-    <title>HandsApp - Private & Secure Messaging</title>
-    <link rel="icon" type="image/png" href="favicon.png">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="HandsApp — Private and secure messaging. No ads. Made in India. Connect, share, and stay close to the people who matter.">
+<meta name="keywords" content="HandsApp, messaging app, secure chat, private messaging, India, no ads messenger">
+<meta property="og:title" content="HandsApp — Private & Secure Messaging">
+<meta property="og:description" content="Connect. Share. Together. Private messaging with full control over who can reach you. No ads, made in India.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://handsapp.in">
+<meta property="og:image" content="https://handsapp.in/handsapp-chat.jpg">
+<meta name="theme-color" content="#1D9E75">
+<title>HandsApp — Private & Secure Messaging</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #1D9E75;
+    --green-dark: #157a5a;
+    --green-soft: #E5F5EE;
+    --yellow: #FFB300;
+    --yellow-soft: #FFF5DB;
+    --ink: #0F1B17;
+    --muted: #5C6B66;
+    --line: #E8ECEA;
+    --bg: #FFFFFF;
+    --bg-alt: #F7FAF8;
+    --shadow-sm: 0 1px 2px rgba(15, 27, 23, 0.04), 0 1px 3px rgba(15, 27, 23, 0.06);
+    --shadow-md: 0 4px 12px rgba(15, 27, 23, 0.06), 0 12px 32px rgba(15, 27, 23, 0.08);
+    --shadow-phone: 0 30px 60px -15px rgba(15, 27, 23, 0.25), 0 18px 36px -10px rgba(29, 158, 117, 0.15);
+  }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f5f7fa;
-        }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* Navigation */
-        .navbar {
-            background: white;
-            padding: 16px 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+  html { scroll-behavior: smooth; }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+  body {
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            color: #1D9E75;
-        }
+  h1, h2, h3 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
 
-        .nav-logo img {
-            width: 36px;
-            height: 36px;
-            border-radius: 8px;
-            margin-right: 10px;
-        }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
 
-        .nav-logo span {
-            font-size: 1.3rem;
-            font-weight: 700;
-        }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
 
-        .nav-links a, .nav-links span.email-copy {
-            color: #555;
-            text-decoration: none;
-            margin: 0 12px;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-            cursor: pointer;
-        }
+  /* ============ NAVBAR ============ */
+  .navbar {
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: saturate(180%) blur(12px);
+    -webkit-backdrop-filter: saturate(180%) blur(12px);
+    border-bottom: 1px solid var(--line);
+    z-index: 100;
+  }
 
-        .nav-links a:hover, .nav-links span.email-copy:hover {
-            color: #1D9E75;
-        }
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 14px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+  }
 
-        /* Hero */
-        .hero {
-            background: linear-gradient(135deg, #1D9E75 0%, #157a5a 100%);
-            color: white;
-            padding: 80px 20px 100px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    color: var(--green);
+    font-size: 1.15rem;
+    font-family: 'Bricolage Grotesque', sans-serif;
+  }
 
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
+  .brand img {
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+  }
 
-        .hero img {
-            width: 120px;
-            height: 120px;
-            border-radius: 24px;
-            margin-bottom: 24px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-        }
+  .brand sup {
+    font-size: 0.6em;
+    margin-left: 2px;
+    color: var(--muted);
+    font-weight: 500;
+  }
 
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 4px;
-            font-weight: 800;
-            letter-spacing: -1px;
-        }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
 
-        .hero .subtitle {
-            font-size: 1.6rem;
-            font-weight: 500;
-            opacity: 0.9;
-            margin-bottom: 16px;
-            letter-spacing: 0.5px;
-        }
+  .nav-links a, .nav-links .email-copy {
+    color: var(--ink);
+    font-size: 0.94rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
 
-        .hero .tagline {
-            font-size: 1.3rem;
-            opacity: 0.95;
-            margin-bottom: 32px;
-            font-weight: 400;
-        }
+  .nav-links a:hover, .nav-links .email-copy:hover {
+    color: var(--green);
+  }
 
-        .hero .subhead {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            margin-bottom: 36px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.6;
-        }
+  .nav-cta {
+    background: var(--ink);
+    color: white !important;
+    padding: 9px 18px;
+    border-radius: 100px;
+    font-weight: 600 !important;
+    transition: transform 0.2s, background 0.2s;
+  }
 
-        .cta-buttons {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+  .nav-cta:hover {
+    background: var(--green) !important;
+    transform: translateY(-1px);
+  }
 
-        .btn {
-            display: inline-block;
-            padding: 14px 32px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.2s;
-            cursor: pointer;
-            border: none;
-        }
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+  }
 
-        .btn-primary {
-            background: white;
-            color: #1D9E75;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
+  .menu-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--ink);
+    margin: 5px 0;
+    transition: 0.2s;
+    border-radius: 2px;
+  }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
-        }
+  /* ============ HERO ============ */
+  .hero {
+    padding: 80px 0 100px;
+    background:
+      radial-gradient(circle at 88% 12%, rgba(255, 179, 0, 0.10) 0%, transparent 38%),
+      radial-gradient(circle at 8% 80%, rgba(29, 158, 117, 0.08) 0%, transparent 38%),
+      var(--bg);
+    position: relative;
+    overflow: hidden;
+  }
 
-        .btn-secondary {
-            background: rgba(255,255,255,0.15);
-            color: white;
-            border: 2px solid rgba(255,255,255,0.4);
-        }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
 
-        .btn-secondary:hover {
-            background: rgba(255,255,255,0.25);
-            border-color: white;
-        }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--green-soft);
+    color: var(--green-dark);
+    padding: 7px 14px;
+    border-radius: 100px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin-bottom: 28px;
+    letter-spacing: -0.005em;
+  }
 
-        /* Section */
-        .section {
-            padding: 80px 20px;
-        }
+  .hero-tag::before {
+    content: "🇮🇳";
+    font-size: 1rem;
+  }
 
-        .section-container {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
+  .hero h1 {
+    font-size: clamp(2.4rem, 5.4vw, 4.2rem);
+    margin-bottom: 22px;
+  }
 
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #1D9E75;
-            margin-bottom: 12px;
-        }
+  .hero h1 .accent {
+    background: linear-gradient(135deg, var(--green) 30%, var(--green-dark) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+  }
 
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 50px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+  .hero h1 .accent::after {
+    content: "";
+    display: block;
+    height: 6px;
+    width: 100%;
+    background: var(--yellow);
+    border-radius: 3px;
+    margin-top: 4px;
+    opacity: 0.9;
+  }
 
-        /* Features grid */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-        }
+  .hero-sub {
+    color: var(--muted);
+    font-size: 1.18rem;
+    line-height: 1.55;
+    max-width: 520px;
+    margin-bottom: 36px;
+  }
 
-        .feature-card {
-            background: white;
-            border-radius: 14px;
-            padding: 28px 24px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            transition: transform 0.2s, box-shadow 0.2s;
-            border-top: 4px solid transparent;
-        }
+  .hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 30px;
+  }
 
-        .feature-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-        }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 26px;
+    border-radius: 12px;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    cursor: pointer;
+    border: none;
+  }
 
-        .feature-card:nth-child(1) { border-top-color: #1D9E75; }
-        .feature-card:nth-child(2) { border-top-color: #378ADD; }
-        .feature-card:nth-child(3) { border-top-color: #7B1FA2; }
-        .feature-card:nth-child(4) { border-top-color: #D4A017; }
-        .feature-card:nth-child(5) { border-top-color: #D85A30; }
-        .feature-card:nth-child(6) { border-top-color: #1D9E75; }
+  .btn-primary {
+    background: var(--ink);
+    color: white;
+  }
 
-        .feature-icon {
-            font-size: 2.4rem;
-            margin-bottom: 16px;
-            display: block;
-        }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px -8px rgba(15, 27, 23, 0.5);
+  }
 
-        .feature-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 10px;
-        }
+  .btn-primary svg {
+    width: 18px;
+    height: 18px;
+  }
 
-        .feature-desc {
-            color: #666;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
+  .btn-secondary {
+    background: var(--bg);
+    color: var(--ink);
+    border: 1px solid var(--line);
+  }
 
-        /* Why different section */
-        .why-section {
-            background: linear-gradient(135deg, #1D9E75 0%, #157a5a 100%);
-            color: white;
-        }
+  .btn-secondary:hover {
+    border-color: var(--green);
+    color: var(--green);
+  }
 
-        .why-section .section-title {
-            color: white;
-        }
+  .hero-trust {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: var(--muted);
+    font-size: 0.88rem;
+  }
 
-        .why-section .section-subtitle {
-            color: rgba(255,255,255,0.9);
-        }
+  .stars { color: var(--yellow); letter-spacing: 1px; font-size: 1rem; }
 
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-            margin-top: 40px;
-        }
+  .hero-trust .dot {
+    width: 4px; height: 4px; border-radius: 50%;
+    background: var(--muted); opacity: 0.4;
+  }
 
-        .why-card {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 14px;
-            padding: 28px 24px;
-            border: 1px solid rgba(255,255,255,0.15);
-        }
+  /* Phone mockup */
+  .phone-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
 
-        .why-card-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-        }
+  .phone-wrap::before {
+    content: "";
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(circle, rgba(29, 158, 117, 0.20) 0%, transparent 70%);
+    z-index: 0;
+    border-radius: 50%;
+  }
 
-        .why-card-title .check {
-            margin-right: 10px;
-            font-size: 1.4rem;
-        }
+  .phone {
+    position: relative;
+    z-index: 1;
+    width: 280px;
+    background: #0F1B17;
+    border-radius: 38px;
+    padding: 9px;
+    box-shadow: var(--shadow-phone);
+    animation: phoneFloat 6s ease-in-out infinite;
+  }
 
-        .why-card-desc {
-            opacity: 0.9;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
+  @keyframes phoneFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
 
-        /* CTA section */
-        .cta-section {
-            text-align: center;
-            padding: 80px 20px;
-            background: white;
-        }
+  .phone-screen {
+    border-radius: 30px;
+    overflow: hidden;
+    background: white;
+    aspect-ratio: 9 / 19.5;
+    position: relative;
+  }
 
-        .cta-section h2 {
-            font-size: 2.2rem;
-            color: #1D9E75;
-            margin-bottom: 16px;
-            font-weight: 700;
-        }
+  .phone-screen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
 
-        .cta-section p {
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 32px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+  /* Floating yellow tick accent */
+  .tick-badge {
+    position: absolute;
+    top: 18%;
+    right: -36px;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 12px 16px;
+    box-shadow: var(--shadow-md);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: fadeUp 0.8s 0.4s both;
+  }
 
-        .download-btn {
-            display: inline-block;
-            background: #1D9E75;
-            color: white;
-            padding: 16px 36px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.05rem;
-            box-shadow: 0 4px 12px rgba(29, 158, 117, 0.3);
-            transition: all 0.2s;
-        }
+  .tick-badge svg { width: 22px; height: 22px; color: var(--yellow); }
 
-        .download-btn:hover {
-            background: #157a5a;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(29, 158, 117, 0.4);
-        }
+  .tick-badge-text {
+    font-size: 0.82rem;
+    color: var(--ink);
+  }
 
-        /* Footer */
-        .footer {
-            background: #2d3748;
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-        }
+  .tick-badge-text strong {
+    display: block;
+    font-weight: 700;
+    line-height: 1.1;
+  }
 
-        .footer-logo {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 16px;
-        }
+  .tick-badge-text span {
+    color: var(--muted);
+    font-size: 0.72rem;
+  }
 
-        .footer-logo img {
-            width: 48px;
-            height: 48px;
-            border-radius: 10px;
-            margin-right: 12px;
-        }
+  .lock-badge {
+    position: absolute;
+    bottom: 22%;
+    left: -36px;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 12px 16px;
+    box-shadow: var(--shadow-md);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: fadeUp 0.8s 0.6s both;
+  }
 
-        .footer-logo span {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: white;
-        }
+  .lock-badge svg { width: 22px; height: 22px; color: var(--green); }
 
-        .footer-tagline {
-            font-size: 0.95rem;
-            opacity: 0.85;
-            margin-bottom: 20px;
-        }
+  .lock-badge-text {
+    font-size: 0.82rem;
+    color: var(--ink);
+  }
 
-        .footer-links {
-            margin-bottom: 20px;
-        }
+  .lock-badge-text strong {
+    display: block;
+    font-weight: 700;
+    line-height: 1.1;
+  }
 
-        .footer-links a, .footer-links span.email-copy {
-            color: #5dd4a3;
-            text-decoration: none;
-            margin: 0 12px;
-            font-size: 0.95rem;
-            cursor: pointer;
-        }
+  .lock-badge-text span {
+    color: var(--muted);
+    font-size: 0.72rem;
+  }
 
-        .footer-links a:hover, .footer-links span.email-copy:hover {
-            text-decoration: underline;
-        }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
-        .footer-text {
-            font-size: 0.85rem;
-            opacity: 0.8;
-            line-height: 1.6;
-        }
+  /* ============ SECTION TITLES ============ */
+  .section {
+    padding: 90px 0;
+    position: relative;
+  }
 
-        /* Copy toast notification */
-        .copy-toast {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background: #1D9E75;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease, opacity 0.3s ease;
-            opacity: 0;
-            z-index: 1000;
-        }
+  .section-alt {
+    background: var(--bg-alt);
+  }
 
-        .copy-toast.show {
-            transform: translateX(-50%) translateY(0);
-            opacity: 1;
-        }
+  .section-head {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 56px;
+  }
 
-        @media (max-width: 600px) {
-            .hero { padding: 60px 20px 80px; }
-            .hero h1 { font-size: 2.2rem; }
-            .hero .subtitle { font-size: 1.2rem; }
-            .hero .tagline { font-size: 1.1rem; }
-            .hero .subhead { font-size: 1rem; }
-            .section-title { font-size: 1.8rem; }
-            .section { padding: 60px 20px; }
-            .nav-links a, .nav-links span.email-copy { margin: 0 8px; font-size: 0.85rem; }
-            .nav-logo span { font-size: 1.1rem; }
-            .cta-buttons { flex-direction: column; }
-            .btn { width: 100%; max-width: 280px; }
-        }
-    </style>
+  .section-tag {
+    display: inline-block;
+    color: var(--green);
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 12px;
+  }
+
+  .section-head h2 {
+    font-size: clamp(1.9rem, 3.6vw, 2.7rem);
+    margin-bottom: 14px;
+  }
+
+  .section-head p {
+    color: var(--muted);
+    font-size: 1.08rem;
+  }
+
+  /* ============ FEATURES ============ */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+
+  .feature {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 28px;
+    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+  }
+
+  .feature:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: transparent;
+  }
+
+  .feature-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--green-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+  }
+
+  .feature-icon svg {
+    width: 24px;
+    height: 24px;
+    color: var(--green);
+    stroke-width: 2;
+  }
+
+  .feature h3 {
+    font-size: 1.18rem;
+    margin-bottom: 8px;
+  }
+
+  .feature p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  /* ============ WHY DIFFERENT ============ */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+
+  .why {
+    background: var(--bg);
+    border-radius: 18px;
+    padding: 32px;
+    border: 1px solid var(--line);
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+
+  .why-check {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--green);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+
+  .why h3 {
+    font-size: 1.18rem;
+    margin-bottom: 8px;
+  }
+
+  .why p {
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  /* ============ HOW IT WORKS ============ */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    position: relative;
+  }
+
+  .step {
+    text-align: center;
+    position: relative;
+  }
+
+  .step-num {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 22px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .step:nth-child(2) .step-num { background: var(--green); }
+  .step:nth-child(3) .step-num { background: var(--yellow); color: var(--ink); }
+
+  .step h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+  }
+
+  .step p {
+    color: var(--muted);
+    max-width: 280px;
+    margin: 0 auto;
+    font-size: 0.96rem;
+  }
+
+  /* ============ FINAL CTA ============ */
+  .final-cta {
+    padding: 90px 0;
+    background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .final-cta::before {
+    content: "";
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 360px; height: 360px;
+    background: radial-gradient(circle, rgba(255, 179, 0, 0.30) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .final-cta::after {
+    content: "";
+    position: absolute;
+    bottom: -100px; left: -100px;
+    width: 360px; height: 360px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .final-cta-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .final-cta h2 {
+    color: white;
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    margin-bottom: 18px;
+  }
+
+  .final-cta p {
+    font-size: 1.18rem;
+    margin-bottom: 36px;
+    opacity: 0.92;
+  }
+
+  .btn-play-store {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--ink);
+    color: white;
+    padding: 16px 32px;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 1.08rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .btn-play-store:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.35);
+  }
+
+  .btn-play-store svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .btn-play-store-text {
+    text-align: left;
+    line-height: 1.1;
+  }
+
+  .btn-play-store-text small {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 500;
+    opacity: 0.8;
+  }
+
+  /* ============ FOOTER ============ */
+  .footer {
+    background: var(--ink);
+    color: rgba(255, 255, 255, 0.75);
+    padding: 60px 0 30px;
+    font-size: 0.92rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+
+  .footer-brand sup {
+    font-size: 0.5em;
+    margin-left: 2px;
+    color: rgba(255, 255, 255, 0.55);
+    font-weight: 500;
+  }
+
+  .footer-brand img {
+    width: 38px;
+    height: 38px;
+    border-radius: 9px;
+  }
+
+  .footer-tagline {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.92rem;
+    margin-bottom: 18px;
+  }
+
+  .footer h4 {
+    color: white;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 0.92rem;
+    margin-bottom: 14px;
+    letter-spacing: 0.02em;
+  }
+
+  .footer ul { list-style: none; }
+  .footer li { margin-bottom: 9px; }
+
+  .footer a, .footer .email-copy {
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+
+  .footer a:hover, .footer .email-copy:hover {
+    color: var(--yellow);
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 0.84rem;
+  }
+
+  /* ============ TOAST ============ */
+  .copy-toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--ink);
+    color: white;
+    padding: 12px 22px;
+    border-radius: 100px;
+    font-size: 0.92rem;
+    font-weight: 500;
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    transition: transform 0.3s, opacity 0.3s;
+    z-index: 1000;
+    pointer-events: none;
+  }
+
+  .copy-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 920px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 50px;
+      text-align: center;
+    }
+    .hero-tag, .hero-ctas, .hero-trust { justify-content: center; }
+    .hero-ctas { display: inline-flex; }
+    .hero-sub { margin-left: auto; margin-right: auto; }
+    .features-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1.5fr 1fr 1fr; }
+    .footer-grid > div:last-child { grid-column: 1 / -1; }
+  }
+
+  @media (max-width: 720px) {
+    .section { padding: 64px 0; }
+    .hero { padding: 60px 0 70px; }
+    .menu-toggle { display: block; }
+    .nav-links { display: none; }
+    .nav-links.open {
+      display: flex;
+      position: absolute;
+      top: 100%;
+      left: 0; right: 0;
+      flex-direction: column;
+      background: white;
+      padding: 22px 24px;
+      gap: 18px;
+      align-items: flex-start;
+      border-bottom: 1px solid var(--line);
+      box-shadow: var(--shadow-sm);
+    }
+    .nav-links.open .nav-cta { align-self: stretch; text-align: center; }
+    .features-grid, .why-grid { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr; gap: 36px; }
+    .tick-badge, .lock-badge { display: none; }
+    .phone { width: 240px; }
+    .phone-wrap::before { width: 280px; height: 280px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .footer-grid > div:first-child { grid-column: 1 / -1; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+  }
+
+  @media (max-width: 420px) {
+    .hero h1 { font-size: 2.2rem; }
+    .hero-ctas { flex-direction: column; align-items: stretch; }
+    .btn { justify-content: center; }
+  }
+</style>
 </head>
 <body>
 
-<!-- Navigation -->
+<!-- ============ NAVBAR ============ -->
 <nav class="navbar">
-    <div class="nav-container">
-        <a href="index.html" class="nav-logo">
-            <img src="play_store_icon_512.png" alt="HandsApp Logo">
-            <span>HandsApp</span>
-        </a>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="privacy-policy.html">Privacy</a>
-            <span class="email-copy" data-email="support@handsapp.in">Support</span>
-        </div>
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <img src="play_store_icon_512.png" alt="HandsApp logo">
+      <span>HandsApp<sup>™</sup></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="#features">Features</a>
+      <a href="#why">Why HandsApp</a>
+      <a href="about.html">About</a>
+      <a href="privacy-policy.html">Privacy</a>
+      <a class="nav-cta" href="https://play.google.com/store/apps/details?id=com.handsapp.messenger" target="_blank" rel="noopener">Download</a>
     </div>
+  </div>
 </nav>
 
-<!-- Hero -->
+<!-- ============ HERO ============ -->
 <section class="hero">
-    <div class="hero-content">
-        <img src="play_store_icon_512.png" alt="HandsApp Logo">
-        <h1>HandsApp</h1>
-        <div class="subtitle">Messenger</div>
-        <div class="tagline">Connect. Share. Together.</div>
-        <p class="subhead">Private and secure messaging with chat, voice, status, groups, events, channels and more. No ads. Built with privacy at its core.</p>
-        <div class="cta-buttons">
-            <a href="https://play.google.com/store/apps/details?id=com.handsapp.messenger" class="btn btn-primary" target="_blank" rel="noopener">Download on Google Play</a>
-            <a href="about.html" class="btn btn-secondary">Learn More</a>
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div class="hero-tag">Made in India · No Ads, Ever</div>
+        <h1>Messaging that respects <span class="accent">your privacy</span>.</h1>
+        <p class="hero-sub">HandsApp is a private, ad-free messaging app. Chat, share photos, host channels, post status — and stay in full control of who can reach you.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.handsapp.messenger" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814 13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893 2.604 2.605-12.022 6.85zM15.241 10.34 6.155 5.156l11.022 6.281zm4.679 3.835c.494-.378.494-1.118 0-1.496l-2.448-1.396L15.292 12l2.18 2.179z"/></svg>
+            <span>Download on Play Store</span>
+          </a>
+          <a class="btn btn-secondary" href="#features">Explore features →</a>
         </div>
-    </div>
-</section>
-
-<!-- Features -->
-<section class="section">
-    <div class="section-container">
-        <h2 class="section-title">Everything You Need</h2>
-        <p class="section-subtitle">Built for modern communication with a focus on privacy, simplicity, and expression.</p>
-
-        <div class="features-grid">
-            <div class="feature-card">
-                <span class="feature-icon">🔒</span>
-                <h3 class="feature-title">Secure Messaging</h3>
-                <p class="feature-desc">Private one-on-one and group chats with end-to-end transmission security. Your conversations stay yours.</p>
-            </div>
-
-            <div class="feature-card">
-                <span class="feature-icon">👫</span>
-                <h3 class="feature-title">Friend Request System</h3>
-                <p class="feature-desc">Two-way friend request system gives you complete control over who can message you. No more unwanted messages.</p>
-            </div>
-
-            <div class="feature-card">
-                <span class="feature-icon">📅</span>
-                <h3 class="feature-title">Events & RSVPs</h3>
-                <p class="feature-desc">Plan get-togethers with built-in events. Share details, track attendees, and coordinate effortlessly.</p>
-            </div>
-
-            <div class="feature-card">
-                <span class="feature-icon">📡</span>
-                <h3 class="feature-title">Channels & Marketplace</h3>
-                <p class="feature-desc">Create channels to broadcast to your audience. Discover and follow channels in the marketplace.</p>
-            </div>
-
-            <div class="feature-card">
-                <span class="feature-icon">📷</span>
-                <h3 class="feature-title">24-Hour Status</h3>
-                <p class="feature-desc">Share photos, videos, and moments that disappear after 24 hours. Only your contacts can see them.</p>
-            </div>
-
-            <div class="feature-card">
-                <span class="feature-icon">🎨</span>
-                <h3 class="feature-title">Personalize Everything</h3>
-                <p class="feature-desc">Custom text styles, colors, wallpapers, and themes. Make HandsApp truly yours.</p>
-            </div>
+        <div class="hero-trust">
+          <span class="stars">★★★★★</span>
+          <span>Live on Google Play</span>
+          <span class="dot"></span>
+          <span>177 countries</span>
         </div>
-    </div>
-</section>
+      </div>
 
-<!-- Why HandsApp -->
-<section class="section why-section">
-    <div class="section-container">
-        <h2 class="section-title">Why HandsApp Is Different</h2>
-        <p class="section-subtitle">We respect your privacy, your time, and your data.</p>
-
-        <div class="why-grid">
-            <div class="why-card">
-                <h3 class="why-card-title"><span class="check">✓</span>No Ads, Ever</h3>
-                <p class="why-card-desc">Your attention isn't sold to advertisers. HandsApp is free with no ads, ever. Pure messaging, no distractions.</p>
-            </div>
-
-            <div class="why-card">
-                <h3 class="why-card-title"><span class="check">✓</span>You Choose Who Reaches You</h3>
-                <p class="why-card-desc">Unlike other messaging apps, no one can message you without your permission. Send and accept friend requests on your terms.</p>
-            </div>
-
-            <div class="why-card">
-                <h3 class="why-card-title"><span class="check">✓</span>Your Data, Your Control</h3>
-                <p class="why-card-desc">Compliant with India's Digital Personal Data Protection Act. Delete your account anytime from within the app.</p>
-            </div>
-
-            <div class="why-card">
-                <h3 class="why-card-title"><span class="check">✓</span>Built in India</h3>
-                <p class="why-card-desc">Engineered by HandsApp Pvt. Ltd. in Delhi. Optimized for Indian networks and devices, designed for everyone.</p>
-            </div>
+      <div class="phone-wrap">
+        <div class="tick-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline><polyline points="13 6 4 15"></polyline></svg>
+          <div class="tick-badge-text">
+            <strong>Read</strong>
+            <span>02:53 pm</span>
+          </div>
         </div>
+        <div class="lock-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          <div class="lock-badge-text">
+            <strong>Private</strong>
+            <span>End-to-end</span>
+          </div>
+        </div>
+        <div class="phone">
+          <div class="phone-screen">
+            <img src="handsapp-chat.jpg" alt="HandsApp chat screen with bold yellow read receipt">
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-section">
-    <h2>Ready to Get Started?</h2>
-    <p>Download HandsApp and reconnect with the people who matter — privately, simply, and ad-free.</p>
-    <a href="https://play.google.com/store/apps/details?id=com.handsapp.messenger" class="download-btn" target="_blank" rel="noopener">Get HandsApp on Google Play</a>
+<!-- ============ FEATURES ============ -->
+<section class="section section-alt" id="features">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">Features</span>
+      <h2>Everything you need to stay close</h2>
+      <p>Built for modern communication with a focus on privacy, simplicity, and expression.</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+        </div>
+        <h3>Secure Messaging</h3>
+        <p>Text, voice notes, photos, videos and documents — every message stays between you and the people you trust.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="m22 11-3 3-3-3"></path><path d="M19 14V8"></path></svg>
+        </div>
+        <h3>Friend Request System</h3>
+        <p>You decide who can message you. Two-way approval keeps strangers and spam out of your inbox.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+        </div>
+        <h3>Events & RSVPs</h3>
+        <p>Organize meetups, parties, and gatherings with built-in event chat, file sharing, and RSVP tracking.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+        </div>
+        <h3>Channels & Marketplace</h3>
+        <p>Create channels to share with the world. Discover public channels in the Marketplace to follow what interests you.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        </div>
+        <h3>24-Hour Status</h3>
+        <p>Share photos and videos that disappear after 24 hours. Private reactions stay between sender and viewer.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="2.5"></circle><circle cx="19" cy="13" r="2.5"></circle><circle cx="6" cy="12" r="2.5"></circle><circle cx="10" cy="19" r="2.5"></circle><path d="M13.5 9a8.3 8.3 0 0 1 5.5 4M6 14.5a8.3 8.3 0 0 0 4 4.5M19 15.5a8.3 8.3 0 0 1-9 3.5M11 4.5a8.3 8.3 0 0 0-5 7.5"></path></svg>
+        </div>
+        <h3>Personalize Everything</h3>
+        <p>6 custom fonts, 10 text colors, pattern wallpapers, dark and midnight blue themes — make HandsApp truly yours.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- Footer -->
+<!-- ============ WHY DIFFERENT ============ -->
+<section class="section" id="why">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">Why HandsApp</span>
+      <h2>A messenger built for you, not advertisers</h2>
+      <p>We believe a messaging app should put your privacy, control, and experience first — without compromise.</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why">
+        <div class="why-check">✓</div>
+        <div>
+          <h3>No Ads, Ever</h3>
+          <p>No tracking pixels. No targeted ads. No selling your data. Just a clean messaging experience as it should be.</p>
+        </div>
+      </div>
+      <div class="why">
+        <div class="why-check">✓</div>
+        <div>
+          <h3>You Choose Who Reaches You</h3>
+          <p>Two-way friend requests mean only people you accept can message you. No unsolicited messages, no spam.</p>
+        </div>
+      </div>
+      <div class="why">
+        <div class="why-check">✓</div>
+        <div>
+          <h3>Your Data, Your Control</h3>
+          <p>Strict privacy controls. Phone number used for verification only. You can request deletion at any time.</p>
+        </div>
+      </div>
+      <div class="why">
+        <div class="why-check">✓</div>
+        <div>
+          <h3>Built in India</h3>
+          <p>Designed and developed by HandsApp Pvt. Ltd. in Delhi, India. Made for the way you connect with the people who matter.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">How it works</span>
+      <h2>Get started in three steps</h2>
+      <p>No long signup forms. No complicated setup. You'll be chatting in under a minute.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Download free</h3>
+        <p>Install HandsApp from the Google Play Store on your Android device.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Sign up</h3>
+        <p>Verify with your phone number. We use it only for verification — nothing more.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Start chatting</h3>
+        <p>Add friends, create groups, post a status. Your private space, ready to go.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="final-cta">
+  <div class="final-cta-inner">
+    <h2>Ready to message, the right way?</h2>
+    <p>Join people who want their messaging app to respect them. No ads. No spam. Just conversation.</p>
+    <a class="btn-play-store" href="https://play.google.com/store/apps/details?id=com.handsapp.messenger" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814 13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893 2.604 2.605-12.022 6.85zM15.241 10.34 6.155 5.156l11.022 6.281zm4.679 3.835c.494-.378.494-1.118 0-1.496l-2.448-1.396L15.292 12l2.18 2.179z"/></svg>
+      <div class="btn-play-store-text">
+        <small>GET IT ON</small>
+        <strong>Google Play</strong>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
 <footer class="footer">
-    <div class="footer-logo">
-        <img src="play_store_icon_512.png" alt="HandsApp Logo">
-        <span>HandsApp Messenger</span>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="play_store_icon_512.png" alt="HandsApp">
+          <span>HandsApp<sup>™</sup></span>
+        </div>
+        <p class="footer-tagline">Connect. Share. Together.<br>Private messaging, made in India.</p>
+      </div>
+
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#why">Why HandsApp</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.handsapp.messenger" target="_blank" rel="noopener">Google Play</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><span class="email-copy" data-email="support@handsapp.in">support@handsapp.in</span></li>
+          <li><span class="email-copy" data-email="grievance@handsapp.in">grievance@handsapp.in</span></li>
+        </ul>
+      </div>
     </div>
-    <div class="footer-tagline">Connect. Share. Together.</div>
-    <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <span class="email-copy" data-email="support@handsapp.in">Support</span>
-        <span class="email-copy" data-email="grievance@handsapp.in">Grievance</span>
+
+    <div class="footer-bottom">
+      <div>© 2026 HandsApp Pvt. Ltd. All rights reserved.</div>
+      <div>C-14, Third Floor, C-Block, Pandav Nagar, Delhi - 110092, India</div>
     </div>
-    <div class="footer-text">
-        © 2026 HandsApp Pvt. Ltd. All rights reserved.<br>
-        C-14, Third Floor, C-Block, Pandav Nagar, Delhi - 110092, India
-    </div>
+  </div>
 </footer>
 
-<!-- Copy toast notification -->
-<div class="copy-toast" id="copyToast">Email copied to clipboard!</div>
+<div class="copy-toast" id="copyToast">Email copied!</div>
 
 <script>
-    // Copy email to clipboard on click
-    document.querySelectorAll('.email-copy').forEach(el => {
-        el.addEventListener('click', function() {
-            const email = this.getAttribute('data-email');
-            navigator.clipboard.writeText(email).then(() => {
-                showToast('Email copied: ' + email);
-            }).catch(() => {
-                // Fallback for older browsers
-                const textarea = document.createElement('textarea');
-                textarea.value = email;
-                document.body.appendChild(textarea);
-                textarea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textarea);
-                showToast('Email copied: ' + email);
-            });
-        });
-    });
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
 
-    function showToast(message) {
-        const toast = document.getElementById('copyToast');
-        toast.textContent = message;
-        toast.classList.add('show');
-        setTimeout(() => {
-            toast.classList.remove('show');
-        }, 2500);
-    }
+  // Close mobile menu on link click
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+
+  // Email copy
+  document.querySelectorAll('.email-copy').forEach(el => {
+    el.addEventListener('click', function() {
+      const email = this.getAttribute('data-email');
+      const fallback = () => {
+        const ta = document.createElement('textarea');
+        ta.value = email;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+      };
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(email).then(() => showToast('Copied: ' + email)).catch(() => { fallback(); showToast('Copied: ' + email); });
+      } else { fallback(); showToast('Copied: ' + email); }
+    });
+  });
+
+  function showToast(msg) {
+    const t = document.getElementById('copyToast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2200);
+  }
 </script>
 
 </body>

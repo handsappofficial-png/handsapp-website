@@ -1,511 +1,836 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="About HandsApp - A modern cloud-native messaging platform designed to bring people closer. Built with privacy at its core.">
-    <meta name="keywords" content="HandsApp, messaging app, secure chat, privacy, India, HandsApp Pvt Ltd">
-    <title>About HandsApp - Modern Private Messaging</title>
-    <link rel="icon" type="image/png" href="favicon.png">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="About HandsApp — Private, ad-free messaging app made in India. Learn about features, latest updates, terms, and the team behind HandsApp.">
+<meta name="theme-color" content="#1D9E75">
+<title>About HandsApp — Private & Secure Messaging</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #1D9E75;
+    --green-dark: #157a5a;
+    --green-soft: #E5F5EE;
+    --yellow: #FFB300;
+    --yellow-soft: #FFF5DB;
+    --ink: #0F1B17;
+    --muted: #5C6B66;
+    --line: #E8ECEA;
+    --bg: #FFFFFF;
+    --bg-alt: #F7FAF8;
+    --shadow-sm: 0 1px 2px rgba(15, 27, 23, 0.04), 0 1px 3px rgba(15, 27, 23, 0.06);
+    --shadow-md: 0 4px 12px rgba(15, 27, 23, 0.06), 0 12px 32px rgba(15, 27, 23, 0.08);
+  }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f5f7fa;
-        }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        .header {
-            background: linear-gradient(135deg, #1D9E75 0%, #157a5a 100%);
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
+  html { scroll-behavior: smooth; }
 
-        .header img {
-            width: 90px;
-            height: 90px;
-            border-radius: 20px;
-            margin-bottom: 16px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
+  body {
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-        .header h1 {
-            font-size: 2.2rem;
-            margin-bottom: 4px;
-            font-weight: 700;
-        }
+  h1, h2, h3 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
 
-        .header .subtitle {
-            font-size: 1.3rem;
-            font-weight: 500;
-            opacity: 0.9;
-            margin-bottom: 8px;
-            letter-spacing: 0.5px;
-        }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
 
-        .header .tagline {
-            font-size: 1.1rem;
-            opacity: 0.95;
-            font-weight: 400;
-        }
+  .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
 
-        .nav-links {
-            background: white;
-            padding: 12px 20px;
-            text-align: center;
-            border-bottom: 1px solid #e0e0e0;
-        }
+  /* ============ NAVBAR ============ */
+  .navbar {
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: saturate(180%) blur(12px);
+    -webkit-backdrop-filter: saturate(180%) blur(12px);
+    border-bottom: 1px solid var(--line);
+    z-index: 100;
+  }
 
-        .nav-links a, .nav-links span.email-copy {
-            color: #1D9E75;
-            text-decoration: none;
-            margin: 0 12px;
-            font-weight: 500;
-            font-size: 0.95rem;
-            cursor: pointer;
-        }
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 14px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+  }
 
-        .nav-links a:hover, .nav-links span.email-copy:hover {
-            text-decoration: underline;
-        }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    color: var(--green);
+    font-size: 1.15rem;
+    font-family: 'Bricolage Grotesque', sans-serif;
+  }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 30px 20px;
-        }
+  .brand img { width: 36px; height: 36px; border-radius: 9px; }
 
-        .section {
-            background: white;
-            border-radius: 14px;
-            padding: 24px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
+  .brand sup {
+    font-size: 0.6em;
+    margin-left: 2px;
+    color: var(--muted);
+    font-weight: 500;
+  }
 
-        .section-title {
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 14px;
-            padding-left: 4px;
-        }
+  .nav-links { display: flex; align-items: center; gap: 28px; }
 
-        .section.about .section-title { color: #1D9E75; }
-        .section.about { background: rgba(29, 158, 117, 0.06); border-left: 4px solid #1D9E75; }
+  .nav-links a, .nav-links .email-copy {
+    color: var(--ink);
+    font-size: 0.94rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
 
-        .section.features .section-title { color: #378ADD; }
-        .section.features { background: rgba(55, 138, 221, 0.06); border-left: 4px solid #378ADD; }
+  .nav-links a:hover, .nav-links .email-copy:hover { color: var(--green); }
 
-        .section.whats-new .section-title { color: #7B1FA2; }
-        .section.whats-new { background: rgba(123, 31, 162, 0.06); border-left: 4px solid #7B1FA2; }
+  .nav-cta {
+    background: var(--ink);
+    color: white !important;
+    padding: 9px 18px;
+    border-radius: 100px;
+    font-weight: 600 !important;
+    transition: transform 0.2s, background 0.2s;
+  }
 
-        .section.app-info .section-title { color: #D4A017; }
-        .section.app-info { background: rgba(212, 160, 23, 0.06); border-left: 4px solid #D4A017; }
+  .nav-cta:hover { background: var(--green) !important; transform: translateY(-1px); }
 
-        .section.disclaimer .section-title { color: #D85A30; }
-        .section.disclaimer { background: rgba(216, 90, 48, 0.06); border-left: 4px solid #D85A30; }
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+  }
 
-        .section.terms .section-title { color: #378ADD; }
-        .section.terms { background: rgba(55, 138, 221, 0.06); border-left: 4px solid #378ADD; }
+  .menu-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--ink);
+    margin: 5px 0;
+    transition: 0.2s;
+    border-radius: 2px;
+  }
 
-        .section p {
-            color: #444;
-            font-size: 0.95rem;
-            line-height: 1.7;
-            margin-bottom: 12px;
-        }
+  /* ============ PAGE HERO ============ */
+  .page-hero {
+    padding: 70px 0 50px;
+    background:
+      radial-gradient(circle at 90% 20%, rgba(255, 179, 0, 0.10) 0%, transparent 40%),
+      radial-gradient(circle at 10% 80%, rgba(29, 158, 117, 0.08) 0%, transparent 40%),
+      var(--bg);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
 
-        .section p:last-child {
-            margin-bottom: 0;
-        }
+  .page-hero-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 18px;
+    margin: 0 auto 22px;
+    box-shadow: var(--shadow-md);
+  }
 
-        .email-inline {
-            color: #D85A30;
-            text-decoration: underline;
-            cursor: pointer;
-        }
+  .page-hero h1 {
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    margin-bottom: 12px;
+  }
 
-        .features-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 12px;
-        }
+  .page-hero h1 .accent {
+    background: linear-gradient(135deg, var(--green) 30%, var(--green-dark) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 
-        .feature-item {
-            display: flex;
-            align-items: center;
-            padding: 10px 14px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-        }
+  .page-hero .subtitle {
+    color: var(--muted);
+    font-size: 1.18rem;
+    max-width: 540px;
+    margin: 0 auto;
+  }
 
-        .feature-icon {
-            font-size: 1.4rem;
-            margin-right: 12px;
-            width: 32px;
-            text-align: center;
-        }
+  .page-hero .tagline {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 6px 14px;
+    background: var(--green-soft);
+    color: var(--green-dark);
+    border-radius: 100px;
+    font-size: 0.86rem;
+    font-weight: 600;
+  }
 
-        .feature-text {
-            font-size: 0.92rem;
-            color: #333;
-        }
+  /* ============ MAIN CONTENT ============ */
+  main { padding: 50px 0 30px; }
 
-        .updates-list, .terms-list {
-            list-style: none;
-        }
+  .card {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 32px;
+    margin-bottom: 22px;
+    box-shadow: var(--shadow-sm);
+  }
 
-        .updates-list li, .terms-list li {
-            padding: 6px 0 6px 20px;
-            position: relative;
-            font-size: 0.92rem;
-            color: #444;
-            line-height: 1.6;
-        }
+  .card-tag {
+    display: inline-block;
+    color: var(--green);
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 14px;
+  }
 
-        .updates-list li:before {
-            content: "•";
-            position: absolute;
-            left: 4px;
-            color: #7B1FA2;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
+  .card h2 {
+    font-size: 1.7rem;
+    margin-bottom: 18px;
+    color: var(--ink);
+  }
 
-        .terms-list li:before {
-            content: "•";
-            position: absolute;
-            left: 4px;
-            color: #378ADD;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
+  .card p {
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 14px;
+    font-size: 1rem;
+  }
 
-        .info-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(212, 160, 23, 0.15);
-            font-size: 0.95rem;
-        }
+  .card p:last-child { margin-bottom: 0; }
 
-        .info-row:last-child {
-            border-bottom: none;
-        }
+  /* Features grid */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
 
-        .info-label {
-            color: #666;
-            font-weight: 500;
-        }
+  .feature-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: var(--bg-alt);
+    transition: transform 0.15s, background 0.15s;
+  }
 
-        .info-value {
-            color: #333;
-            font-weight: 600;
-        }
+  .feature-row:hover {
+    background: var(--green-soft);
+    transform: translateX(3px);
+  }
 
-        .footer {
-            background: #2d3748;
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 40px;
-        }
+  .feature-row .icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1.1rem;
+    box-shadow: var(--shadow-sm);
+  }
 
-        .footer-logo {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 16px;
-        }
+  .feature-row span:last-child {
+    color: var(--ink);
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
 
-        .footer-logo img {
-            width: 48px;
-            height: 48px;
-            border-radius: 10px;
-            margin-right: 12px;
-        }
+  /* What's New */
+  .version-block { margin-bottom: 30px; }
+  .version-block:last-child { margin-bottom: 0; }
 
-        .footer-logo span {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: white;
-        }
+  .version-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
 
-        .footer-tagline {
-            font-size: 0.95rem;
-            opacity: 0.85;
-            margin-bottom: 20px;
-        }
+  .version-tag {
+    background: var(--green);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 100px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
 
-        .footer-links {
-            margin-bottom: 16px;
-        }
+  .version-block:nth-child(2) .version-tag { background: var(--yellow); color: var(--ink); }
+  .version-block:nth-child(3) .version-tag { background: var(--ink); color: white; }
 
-        .footer-links a, .footer-links span.email-copy {
-            color: #5dd4a3;
-            text-decoration: none;
-            margin: 0 10px;
-            font-size: 0.95rem;
-            cursor: pointer;
-        }
+  .version-label {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--ink);
+  }
 
-        .footer-links a:hover, .footer-links span.email-copy:hover {
-            text-decoration: underline;
-        }
+  .version-block ul {
+    list-style: none;
+    padding: 0;
+  }
 
-        .footer-text {
-            margin-top: 12px;
-            font-size: 0.85rem;
-            opacity: 0.8;
-            line-height: 1.6;
-        }
+  .version-block li {
+    position: relative;
+    padding: 7px 0 7px 24px;
+    color: var(--muted);
+    line-height: 1.5;
+    font-size: 0.96rem;
+  }
 
-        .download-section {
-            text-align: center;
-            padding: 30px 20px;
-            background: white;
-            margin: 0 0 20px 0;
-            border-radius: 14px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
+  .version-block li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 14px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--green);
+  }
 
-        .download-section h3 {
-            color: #1D9E75;
-            margin-bottom: 10px;
-            font-size: 1.3rem;
-        }
+  .version-block:nth-child(2) li::before { background: var(--yellow); }
+  .version-block:nth-child(3) li::before { background: var(--ink); }
 
-        .download-section p {
-            color: #666;
-            margin-bottom: 16px;
-            font-size: 0.95rem;
-        }
+  /* App Info table */
+  .info-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
 
-        .download-btn {
-            display: inline-block;
-            background: #1D9E75;
-            color: white;
-            padding: 12px 28px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            box-shadow: 0 2px 6px rgba(29, 158, 117, 0.3);
-            transition: all 0.2s;
-        }
+  .info-table tr { border-bottom: 1px solid var(--line); }
+  .info-table tr:last-child { border-bottom: none; }
 
-        .download-btn:hover {
-            background: #157a5a;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(29, 158, 117, 0.4);
-        }
+  .info-table td {
+    padding: 14px 0;
+    font-size: 0.96rem;
+  }
 
-        /* Copy toast notification */
-        .copy-toast {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background: #1D9E75;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease, opacity 0.3s ease;
-            opacity: 0;
-            z-index: 1000;
-        }
+  .info-table td:first-child {
+    color: var(--muted);
+    font-weight: 500;
+    width: 40%;
+  }
 
-        .copy-toast.show {
-            transform: translateX(-50%) translateY(0);
-            opacity: 1;
-        }
+  .info-table td:last-child {
+    color: var(--ink);
+    font-weight: 600;
+    text-align: right;
+  }
 
-        @media (max-width: 600px) {
-            .header h1 { font-size: 1.8rem; }
-            .header .subtitle { font-size: 1.05rem; }
-            .header .tagline { font-size: 1rem; }
-            .features-list { grid-template-columns: 1fr; }
-            .section { padding: 18px; }
-            .container { padding: 20px 14px; }
-        }
-    </style>
+  /* CTA block in middle */
+  .inline-cta {
+    background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+    color: white;
+    border-radius: 18px;
+    padding: 36px 32px;
+    text-align: center;
+    margin: 22px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .inline-cta::before {
+    content: "";
+    position: absolute;
+    top: -50px; right: -50px;
+    width: 180px; height: 180px;
+    background: radial-gradient(circle, rgba(255, 179, 0, 0.30) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .inline-cta h2 {
+    color: white;
+    font-size: 1.7rem;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .inline-cta p {
+    color: rgba(255, 255, 255, 0.92);
+    margin-bottom: 22px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .btn-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--ink);
+    color: white;
+    padding: 14px 26px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .btn-download:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px -8px rgba(0, 0, 0, 0.4);
+  }
+
+  .btn-download svg { width: 20px; height: 20px; }
+
+  .btn-download-text { text-align: left; line-height: 1.1; }
+
+  .btn-download-text small {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 500;
+    opacity: 0.8;
+  }
+
+  /* Disclaimer & Terms */
+  .legal-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .legal-list li {
+    position: relative;
+    padding: 8px 0 8px 24px;
+    color: var(--muted);
+    line-height: 1.55;
+    font-size: 0.95rem;
+  }
+
+  .legal-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 16px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+  }
+
+  .email-inline {
+    color: var(--green);
+    font-weight: 600;
+    cursor: pointer;
+    border-bottom: 1px dashed var(--green);
+  }
+
+  .email-inline:hover { color: var(--green-dark); border-bottom-style: solid; }
+
+  /* ============ FOOTER ============ */
+  .footer {
+    background: var(--ink);
+    color: rgba(255, 255, 255, 0.75);
+    padding: 60px 0 30px;
+    font-size: 0.92rem;
+    margin-top: 50px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+
+  .footer-brand sup {
+    font-size: 0.5em;
+    margin-left: 2px;
+    color: rgba(255, 255, 255, 0.55);
+    font-weight: 500;
+  }
+
+  .footer-brand img { width: 38px; height: 38px; border-radius: 9px; }
+
+  .footer-tagline { color: rgba(255, 255, 255, 0.6); font-size: 0.92rem; margin-bottom: 18px; }
+
+  .footer h4 {
+    color: white;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 0.92rem;
+    margin-bottom: 14px;
+    letter-spacing: 0.02em;
+  }
+
+  .footer ul { list-style: none; }
+  .footer li { margin-bottom: 9px; }
+
+  .footer a, .footer .email-copy {
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+
+  .footer a:hover, .footer .email-copy:hover { color: var(--yellow); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 0.84rem;
+  }
+
+  /* Toast */
+  .copy-toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--ink);
+    color: white;
+    padding: 12px 22px;
+    border-radius: 100px;
+    font-size: 0.92rem;
+    font-weight: 500;
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    transition: transform 0.3s, opacity 0.3s;
+    z-index: 1000;
+    pointer-events: none;
+  }
+
+  .copy-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  /* Responsive */
+  @media (max-width: 720px) {
+    .menu-toggle { display: block; }
+    .nav-links { display: none; }
+    .nav-links.open {
+      display: flex;
+      position: absolute;
+      top: 100%;
+      left: 0; right: 0;
+      flex-direction: column;
+      background: white;
+      padding: 22px 24px;
+      gap: 18px;
+      align-items: flex-start;
+      border-bottom: 1px solid var(--line);
+      box-shadow: var(--shadow-sm);
+    }
+    .nav-links.open .nav-cta { align-self: stretch; text-align: center; }
+    .card { padding: 22px; }
+    .features-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .footer-grid > div:first-child { grid-column: 1 / -1; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+    .info-table td { font-size: 0.92rem; padding: 12px 0; }
+    .page-hero { padding: 50px 0 30px; }
+    .page-hero-logo { width: 64px; height: 64px; }
+  }
+</style>
 </head>
 <body>
 
-<div class="header">
-    <img src="play_store_icon_512.png" alt="HandsApp Logo">
-    <h1>HandsApp</h1>
-    <div class="subtitle">Messenger</div>
-    <div class="tagline">Connect. Share. Together.</div>
-</div>
-
-<div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="privacy-policy.html">Privacy Policy</a>
-    <span class="email-copy" data-email="support@handsapp.in">Support</span>
-</div>
-
-<div class="container">
-
-    <div class="section about">
-        <div class="section-title">About</div>
-        <p>HandsApp is a modern cloud-native messaging platform designed to bring people closer. With secure messaging, group chats, events, channels, and status updates — HandsApp makes communication simple, expressive, and private.</p>
-        <p>Built with a focus on privacy and user experience, HandsApp features a unique two-way friend request system that gives you full control over who can message you. Create channels to share content with the world, organize events, customize your chat experience, and stay connected with the people who matter most.</p>
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <img src="play_store_icon_512.png" alt="HandsApp logo">
+      <span>HandsApp<sup>™</sup></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="#features">Features</a>
+      <a href="#whats-new">What's New</a>
+      <a href="privacy-policy.html">Privacy</a>
+      <a class="nav-cta" href="https://play.google.com/store/apps/details?id=com.handsapp.messenger" target="_blank" rel="noopener">Download</a>
     </div>
+  </div>
+</nav>
 
-    <div class="section features">
-        <div class="section-title">Key Features</div>
-        <div class="features-list">
-            <div class="feature-item"><span class="feature-icon">🔒</span><span class="feature-text">Secure private messaging</span></div>
-            <div class="feature-item"><span class="feature-icon">👥</span><span class="feature-text">Group chats with admin controls</span></div>
-            <div class="feature-item"><span class="feature-icon">📅</span><span class="feature-text">Events with file sharing and event chat</span></div>
-            <div class="feature-item"><span class="feature-icon">📷</span><span class="feature-text">24-hour status with photo and video</span></div>
-            <div class="feature-item"><span class="feature-icon">👫</span><span class="feature-text">Two-way friend request system</span></div>
-            <div class="feature-item"><span class="feature-icon">📈</span><span class="feature-text">Marketplace to discover public channels</span></div>
-            <div class="feature-item"><span class="feature-icon">📡</span><span class="feature-text">Create and manage your own channels</span></div>
-            <div class="feature-item"><span class="feature-icon">👍</span><span class="feature-text">Reactions and anonymous comments</span></div>
-            <div class="feature-item"><span class="feature-icon">✍️</span><span class="feature-text">Custom text styles and fonts</span></div>
-            <div class="feature-item"><span class="feature-icon">🎨</span><span class="feature-text">Text color customization</span></div>
-            <div class="feature-item"><span class="feature-icon">🖼️</span><span class="feature-text">Chat wallpapers with patterns</span></div>
-            <div class="feature-item"><span class="feature-icon">⭐</span><span class="feature-text">Star and pin important messages</span></div>
-            <div class="feature-item"><span class="feature-icon">🌙</span><span class="feature-text">Light, Dark, and System themes</span></div>
-            <div class="feature-item"><span class="feature-icon">⬇️</span><span class="feature-text">Direct file downloads to storage</span></div>
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero">
+  <img src="play_store_icon_512.png" alt="HandsApp logo" class="page-hero-logo">
+  <h1>About <span class="accent">HandsApp</span></h1>
+  <p class="subtitle">Private, ad-free messaging — built in India for people who value their privacy.</p>
+  <div class="tagline">Connect. Share. Together.</div>
+</section>
+
+<!-- ============ MAIN CONTENT ============ -->
+<main>
+  <div class="container">
+
+    <!-- About -->
+    <article class="card">
+      <span class="card-tag">About</span>
+      <h2>What is HandsApp?</h2>
+      <p>HandsApp is a modern cloud-native messaging platform designed to bring people closer. With secure messaging, group chats, events, channels, and status updates — HandsApp makes communication simple, expressive, and private.</p>
+      <p>Built with a focus on privacy and user experience, HandsApp features a unique two-way friend request system that gives you full control over who can message you. Create channels to share content with the world, organize events, customize your chat experience, and stay connected with the people who matter most.</p>
+    </article>
+
+    <!-- Features -->
+    <article class="card" id="features">
+      <span class="card-tag">Capabilities</span>
+      <h2>Key Features</h2>
+      <div class="features-grid">
+        <div class="feature-row"><span class="icon">🔒</span><span>Secure private messaging</span></div>
+        <div class="feature-row"><span class="icon">👥</span><span>Group chats with admin controls</span></div>
+        <div class="feature-row"><span class="icon">📅</span><span>Events with file sharing and event chat</span></div>
+        <div class="feature-row"><span class="icon">📷</span><span>24-hour status with photo and video</span></div>
+        <div class="feature-row"><span class="icon">👫</span><span>Two-way friend request system</span></div>
+        <div class="feature-row"><span class="icon">📈</span><span>Marketplace to discover public channels</span></div>
+        <div class="feature-row"><span class="icon">📡</span><span>Create and manage your own channels</span></div>
+        <div class="feature-row"><span class="icon">👍</span><span>Reactions and anonymous comments</span></div>
+        <div class="feature-row"><span class="icon">✍️</span><span>Custom text styles and fonts</span></div>
+        <div class="feature-row"><span class="icon">🎨</span><span>Text color customization</span></div>
+        <div class="feature-row"><span class="icon">🖼️</span><span>Chat wallpapers with patterns</span></div>
+        <div class="feature-row"><span class="icon">⭐</span><span>Star and pin important messages</span></div>
+        <div class="feature-row"><span class="icon">🌙</span><span>Light, Dark, and System themes</span></div>
+        <div class="feature-row"><span class="icon">⬇️</span><span>Direct file downloads to storage</span></div>
+        <div class="feature-row"><span class="icon">📤</span><span>Share photos and videos from any app</span></div>
+        <div class="feature-row"><span class="icon">✓✓</span><span>3-state read receipts with privacy toggle</span></div>
+      </div>
+    </article>
+
+    <!-- What's New -->
+    <article class="card" id="whats-new">
+      <span class="card-tag">Release notes</span>
+      <h2>What's New</h2>
+
+      <div class="version-block">
+        <div class="version-header">
+          <span class="version-tag">LATEST</span>
+          <span class="version-label">Version 1.1.3</span>
         </div>
-    </div>
-
-    <div class="section whats-new">
-        <div class="section-title">What's New in 1.1.0</div>
-        <ul class="updates-list">
-            <li>Marketplace — Discover and follow public channels</li>
-            <li>Channels — Create, post photos and videos</li>
-            <li>Reactions and anonymous comments on posts</li>
-            <li>Text Style — 6 custom fonts for chat messages</li>
-            <li>Text Color — 10 color options for messages</li>
-            <li>Pattern wallpapers — Dots, Lines, Grid, Bubbles</li>
-            <li>Dark and Midnight Blue wallpapers</li>
-            <li>Channel analytics for owners</li>
-            <li>Improved file downloads to local storage</li>
-            <li>Firebase security rules for data protection</li>
+        <ul>
+          <li>Bolder yellow read tick for better visibility</li>
+          <li>Fixed: typing bar hidden behind navigation bar on some phones</li>
+          <li>Fixed: send button cut off in image and camera preview</li>
+          <li>Login screen layout fixed on small-screen devices</li>
+          <li>Chats list filter chips scroll smoothly on narrow screens</li>
         </ul>
-    </div>
+      </div>
 
-    <div class="section app-info">
-        <div class="section-title">App Info</div>
-        <div class="info-row">
-            <span class="info-label">App Name</span>
-            <span class="info-value">HandsApp Messenger</span>
+      <div class="version-block">
+        <div class="version-header">
+          <span class="version-tag">v1.1.2</span>
+          <span class="version-label">Version 1.1.2</span>
         </div>
-        <div class="info-row">
-            <span class="info-label">Version</span>
-            <span class="info-value">1.1.0</span>
-        </div>
-        <div class="info-row">
-            <span class="info-label">Developer</span>
-            <span class="info-value">HandsApp Pvt. Ltd.</span>
-        </div>
-        <div class="info-row">
-            <span class="info-label">Platform</span>
-            <span class="info-value">Android</span>
-        </div>
-        <div class="info-row">
-            <span class="info-label">Country</span>
-            <span class="info-value">India</span>
-        </div>
-    </div>
-
-    <div class="download-section">
-        <h3>Get HandsApp</h3>
-        <p>Available on Google Play Store</p>
-        <a href="https://play.google.com/store/apps/details?id=com.handsapp.messenger" class="download-btn" target="_blank" rel="noopener">Download Now</a>
-    </div>
-
-    <div class="section disclaimer">
-        <div class="section-title">Disclaimer</div>
-        <p>HandsApp is provided "as is" without warranties of any kind, either express or implied. HandsApp Pvt. Ltd. does not guarantee uninterrupted or error-free service.</p>
-        <p>Users are solely responsible for the content they share, post, or transmit through this application. HandsApp does not monitor, endorse, or take responsibility for user-generated content including messages, media, channel posts, or comments.</p>
-        <p>HandsApp Pvt. Ltd. shall not be liable for any direct, indirect, incidental, or consequential damages arising from the use or inability to use this application.</p>
-        <p>By using HandsApp, you agree to comply with all applicable laws and regulations. Any misuse of the platform including harassment, spam, or sharing illegal content may result in account suspension.</p>
-        <p>HandsApp reserves the right to modify, suspend, or discontinue any part of the service at any time without prior notice.</p>
-        <p>For concerns or queries, contact us at <span class="email-inline email-copy" data-email="support@handsapp.in">support@handsapp.in</span>.</p>
-    </div>
-
-    <div class="section terms">
-        <div class="section-title">Terms of Use</div>
-        <ul class="terms-list">
-            <li>You must be 18 years or older to use HandsApp</li>
-            <li>You are responsible for keeping your account secure</li>
-            <li>Do not use HandsApp for illegal or harmful activities</li>
-            <li>Do not impersonate others or create misleading channels</li>
-            <li>Respect other users and their privacy</li>
-            <li>Do not share copyrighted content without permission</li>
-            <li>HandsApp may collect anonymous usage data to improve the app</li>
-            <li>Your phone number is used for account verification only</li>
-            <li>Channel posts marked as public are visible to all users</li>
-            <li>HandsApp Pvt. Ltd. reserves the right to terminate accounts that violate these terms</li>
+        <ul>
+          <li>New 3-state read receipts: sent → delivered → read</li>
+          <li>Privacy toggle for read receipts (reciprocal control)</li>
+          <li>Group chats: read tick only when everyone has read</li>
+          <li>Smooth crossfade animation between tick states</li>
+          <li>Share photos and videos from any app directly to HandsApp</li>
+          <li>Received media now appears cleanly in your gallery (no duplicates)</li>
+          <li>Tap any received photo or video to download and save</li>
         </ul>
+      </div>
+
+      <div class="version-block">
+        <div class="version-header">
+          <span class="version-tag">v1.1.1</span>
+          <span class="version-label">Version 1.1.1</span>
+        </div>
+        <ul>
+          <li>Photo picker — opens gallery directly for faster sharing</li>
+          <li>Status reactions — counts now private to status owner</li>
+          <li>Profile photos — fixed orientation on upload</li>
+          <li>Channel posts — improved upload reliability with error feedback</li>
+          <li>Improved unread message badge accuracy</li>
+          <li>Marketplace — Discover and follow public channels</li>
+          <li>Channels — Create, post photos and videos</li>
+          <li>Reactions and anonymous comments on posts</li>
+          <li>Text Style — 6 custom fonts for chat messages</li>
+          <li>Text Color — 10 color options for messages</li>
+          <li>Pattern wallpapers — Dots, Lines, Grid, Bubbles</li>
+          <li>Dark and Midnight Blue wallpapers</li>
+          <li>Channel analytics for owners</li>
+          <li>Improved file downloads to local storage</li>
+          <li>Firebase security rules for data protection</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- App Info -->
+    <article class="card">
+      <span class="card-tag">App info</span>
+      <h2>App Information</h2>
+      <table class="info-table">
+        <tr><td>App Name</td><td>HandsApp Messenger</td></tr>
+        <tr><td>Latest Version</td><td>1.1.3</td></tr>
+        <tr><td>Developer</td><td>HandsApp Pvt. Ltd.</td></tr>
+        <tr><td>Platform</td><td>Android</td></tr>
+        <tr><td>Minimum Android</td><td>8.0 (Oreo) and above</td></tr>
+        <tr><td>Country of Origin</td><td>India</td></tr>
+        <tr><td>Availability</td><td>Google Play Store</td></tr>
+      </table>
+    </article>
+
+    <!-- Inline CTA -->
+    <div class="inline-cta">
+      <h2>Get HandsApp on Google Play</h2>
+      <p>Free download. No ads. Made in India.</p>
+      <a class="btn-download" href="https://play.google.com/store/apps/details?id=com.handsapp.messenger" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814 13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893 2.604 2.605-12.022 6.85zM15.241 10.34 6.155 5.156l11.022 6.281zm4.679 3.835c.494-.378.494-1.118 0-1.496l-2.448-1.396L15.292 12l2.18 2.179z"/></svg>
+        <div class="btn-download-text">
+          <small>GET IT ON</small>
+          <strong>Google Play</strong>
+        </div>
+      </a>
     </div>
 
-</div>
+    <!-- Disclaimer -->
+    <article class="card">
+      <span class="card-tag">Legal</span>
+      <h2>Disclaimer</h2>
+      <p>HandsApp is provided "as is" without warranties of any kind, either express or implied. HandsApp Pvt. Ltd. does not guarantee uninterrupted or error-free service.</p>
+      <p>Users are solely responsible for the content they share, post, or transmit through this application. HandsApp does not monitor, endorse, or take responsibility for user-generated content including messages, media, channel posts, or comments.</p>
+      <p>HandsApp Pvt. Ltd. shall not be liable for any direct, indirect, incidental, or consequential damages arising from the use or inability to use this application.</p>
+      <p>By using HandsApp, you agree to comply with all applicable laws and regulations. Any misuse of the platform including harassment, spam, or sharing illegal content may result in account suspension.</p>
+      <p>HandsApp reserves the right to modify, suspend, or discontinue any part of the service at any time without prior notice.</p>
+      <p>For concerns or queries, contact us at <span class="email-inline email-copy" data-email="support@handsapp.in">support@handsapp.in</span>.</p>
+    </article>
 
-<div class="footer">
-    <div class="footer-logo">
-        <img src="play_store_icon_512.png" alt="HandsApp Logo">
-        <span>HandsApp Messenger</span>
-    </div>
-    <div class="footer-tagline">Connect. Share. Together.</div>
-    <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <span class="email-copy" data-email="support@handsapp.in">Support</span>
-        <span class="email-copy" data-email="grievance@handsapp.in">Grievance</span>
-    </div>
-    <div class="footer-text">
-        © 2026 HandsApp Pvt. Ltd. All rights reserved.<br>
-        C-14, Third Floor, C-Block, Pandav Nagar, Delhi - 110092, India
-    </div>
-</div>
+    <!-- Terms -->
+    <article class="card">
+      <span class="card-tag">Usage rules</span>
+      <h2>Terms of Use</h2>
+      <ul class="legal-list">
+        <li>You must be 18 years or older to use HandsApp</li>
+        <li>You are responsible for keeping your account secure</li>
+        <li>Do not use HandsApp for illegal or harmful activities</li>
+        <li>Do not impersonate others or create misleading channels</li>
+        <li>Respect other users and their privacy</li>
+        <li>Do not share copyrighted content without permission</li>
+        <li>HandsApp may collect anonymous usage data to improve the app</li>
+        <li>Your phone number is used for account verification only</li>
+        <li>Channel posts marked as public are visible to all users</li>
+        <li>HandsApp Pvt. Ltd. reserves the right to terminate accounts that violate these terms</li>
+      </ul>
+    </article>
 
-<!-- Copy toast notification -->
-<div class="copy-toast" id="copyToast">Email copied to clipboard!</div>
+  </div>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container" style="max-width: 1200px;">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="play_store_icon_512.png" alt="HandsApp">
+          <span>HandsApp<sup>™</sup></span>
+        </div>
+        <p class="footer-tagline">Connect. Share. Together.<br>Private messaging, made in India.</p>
+      </div>
+
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="index.html#features">Features</a></li>
+          <li><a href="index.html#why">Why HandsApp</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.handsapp.messenger" target="_blank" rel="noopener">Google Play</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><span class="email-copy" data-email="support@handsapp.in">support@handsapp.in</span></li>
+          <li><span class="email-copy" data-email="grievance@handsapp.in">grievance@handsapp.in</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 HandsApp Pvt. Ltd. All rights reserved.</div>
+      <div>C-14, Third Floor, C-Block, Pandav Nagar, Delhi - 110092, India</div>
+    </div>
+  </div>
+</footer>
+
+<div class="copy-toast" id="copyToast">Email copied!</div>
 
 <script>
-    // Copy email to clipboard on click
-    document.querySelectorAll('.email-copy').forEach(el => {
-        el.addEventListener('click', function() {
-            const email = this.getAttribute('data-email');
-            navigator.clipboard.writeText(email).then(() => {
-                showToast('Email copied: ' + email);
-            }).catch(() => {
-                // Fallback for older browsers
-                const textarea = document.createElement('textarea');
-                textarea.value = email;
-                document.body.appendChild(textarea);
-                textarea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textarea);
-                showToast('Email copied: ' + email);
-            });
-        });
-    });
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
 
-    function showToast(message) {
-        const toast = document.getElementById('copyToast');
-        toast.textContent = message;
-        toast.classList.add('show');
-        setTimeout(() => {
-            toast.classList.remove('show');
-        }, 2500);
-    }
+  document.querySelectorAll('.email-copy').forEach(el => {
+    el.addEventListener('click', function() {
+      const email = this.getAttribute('data-email');
+      const fallback = () => {
+        const ta = document.createElement('textarea');
+        ta.value = email;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+      };
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(email).then(() => showToast('Copied: ' + email)).catch(() => { fallback(); showToast('Copied: ' + email); });
+      } else { fallback(); showToast('Copied: ' + email); }
+    });
+  });
+
+  function showToast(msg) {
+    const t = document.getElementById('copyToast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2200);
+  }
 </script>
 
 </body>
