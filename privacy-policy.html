@@ -3,130 +3,766 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HandsApp Messenger — Privacy Policy</title>
+<meta name="description" content="HandsApp Privacy Policy — How we collect, use, and protect your information. DPDPA 2023 compliant.">
+<meta name="theme-color" content="#1D9E75">
+<title>Privacy Policy — HandsApp Messenger</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 24px 20px 80px;
-    line-height: 1.6;
-    color: #2c2c2c;
-    background: #ffffff;
+  :root {
+    --green: #1D9E75;
+    --green-dark: #157a5a;
+    --green-soft: #E5F5EE;
+    --yellow: #FFB300;
+    --ink: #0F1B17;
+    --muted: #5C6B66;
+    --line: #E8ECEA;
+    --bg: #FFFFFF;
+    --bg-alt: #F7FAF8;
+    --shadow-sm: 0 1px 2px rgba(15, 27, 23, 0.04), 0 1px 3px rgba(15, 27, 23, 0.06);
+    --shadow-md: 0 4px 12px rgba(15, 27, 23, 0.06), 0 12px 32px rgba(15, 27, 23, 0.08);
   }
-  img { max-width: 100%; height: auto; display: block; margin: 0 auto 24px; }
-  h1 { color: #1D9E75; font-size: 28px; margin: 24px 0 8px; }
-  h2 { color: #1D9E75; font-size: 20px; margin: 32px 0 12px; border-bottom: 1px solid #eee; padding-bottom: 6px; }
-  h3 { font-size: 16px; margin: 18px 0 8px; }
-  ul { padding-left: 20px; }
-  li { margin: 6px 0; }
-  p { margin: 10px 0; }
-  .effective { color: #777; font-size: 14px; margin-bottom: 24px; }
-  .footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid #eee; color: #777; font-size: 13px; text-align: center; }
-  a { color: #1D9E75; }
-  strong { color: #1a1a1a; }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+
+  a { color: var(--green); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  img { max-width: 100%; display: block; }
+
+  .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+  /* ============ NAVBAR ============ */
+  .navbar {
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: saturate(180%) blur(12px);
+    -webkit-backdrop-filter: saturate(180%) blur(12px);
+    border-bottom: 1px solid var(--line);
+    z-index: 100;
+  }
+
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 14px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    color: var(--green);
+    font-size: 1.15rem;
+    font-family: 'Bricolage Grotesque', sans-serif;
+  }
+
+  .brand img { width: 36px; height: 36px; border-radius: 9px; }
+
+  .brand sup {
+    font-size: 0.6em;
+    margin-left: 2px;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  .nav-links { display: flex; align-items: center; gap: 28px; }
+
+  .nav-links a, .nav-links .email-copy {
+    color: var(--ink);
+    font-size: 0.94rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover, .nav-links .email-copy:hover {
+    color: var(--green);
+    text-decoration: none;
+  }
+
+  .nav-cta {
+    background: var(--ink);
+    color: white !important;
+    padding: 9px 18px;
+    border-radius: 100px;
+    font-weight: 600 !important;
+    transition: transform 0.2s, background 0.2s;
+  }
+
+  .nav-cta:hover { background: var(--green) !important; transform: translateY(-1px); text-decoration: none; }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+  }
+
+  .menu-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--ink);
+    margin: 5px 0;
+    transition: 0.2s;
+    border-radius: 2px;
+  }
+
+  /* ============ PAGE HERO ============ */
+  .page-hero {
+    padding: 70px 0 50px;
+    background:
+      radial-gradient(circle at 90% 20%, rgba(255, 179, 0, 0.10) 0%, transparent 40%),
+      radial-gradient(circle at 10% 80%, rgba(29, 158, 117, 0.08) 0%, transparent 40%),
+      var(--bg);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page-hero .icon-circle {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 22px;
+    background: var(--green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 12px 32px -8px rgba(29, 158, 117, 0.40);
+  }
+
+  .page-hero .icon-circle svg {
+    width: 36px;
+    height: 36px;
+    color: white;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(2.3rem, 5vw, 3.4rem);
+    margin-bottom: 12px;
+  }
+
+  .page-hero h1 .accent {
+    background: linear-gradient(135deg, var(--green) 30%, var(--green-dark) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .page-hero .subtitle {
+    color: var(--muted);
+    font-size: 1.12rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .effective-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 18px;
+    padding: 6px 14px;
+    background: var(--green-soft);
+    color: var(--green-dark);
+    border-radius: 100px;
+    font-size: 0.84rem;
+    font-weight: 600;
+  }
+
+  .effective-badge::before { content: "📅"; font-size: 0.95rem; }
+
+  /* ============ TOC ============ */
+  .toc {
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 28px 32px;
+    margin: 40px 0;
+  }
+
+  .toc-title {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--ink);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .toc-title::before {
+    content: "";
+    width: 24px;
+    height: 2px;
+    background: var(--green);
+    border-radius: 2px;
+  }
+
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px 24px;
+  }
+
+  .toc a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    color: var(--ink);
+    font-size: 0.92rem;
+    font-weight: 500;
+    transition: color 0.15s;
+  }
+
+  .toc a:hover { color: var(--green); text-decoration: none; }
+
+  .toc-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 24px;
+    height: 24px;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--green);
+  }
+
+  /* ============ MAIN CONTENT ============ */
+  main { padding: 30px 0 60px; }
+
+  .intro {
+    font-size: 1.05rem;
+    color: var(--ink);
+    line-height: 1.7;
+    padding: 24px 28px;
+    background: var(--green-soft);
+    border-left: 4px solid var(--green);
+    border-radius: 12px;
+    margin-bottom: 40px;
+  }
+
+  section.policy {
+    padding: 30px 0;
+    scroll-margin-top: 80px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  section.policy:last-of-type { border-bottom: none; }
+
+  section.policy h2 {
+    font-size: 1.55rem;
+    margin-bottom: 16px;
+    color: var(--ink);
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  section.policy h2 .num {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    color: var(--green);
+    font-weight: 800;
+    font-size: 0.85em;
+    min-width: 30px;
+  }
+
+  section.policy h3 {
+    font-size: 1.05rem;
+    margin: 18px 0 8px;
+    color: var(--ink);
+  }
+
+  section.policy p {
+    color: var(--ink);
+    margin: 12px 0;
+    line-height: 1.7;
+    font-size: 1rem;
+  }
+
+  section.policy ul {
+    padding-left: 0;
+    list-style: none;
+    margin: 14px 0;
+  }
+
+  section.policy li {
+    position: relative;
+    padding: 8px 0 8px 28px;
+    color: var(--ink);
+    line-height: 1.65;
+  }
+
+  section.policy li::before {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 18px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--green);
+  }
+
+  strong { font-weight: 700; color: var(--ink); }
+
+  /* Grievance officer card */
+  .grievance-card {
+    background: linear-gradient(135deg, var(--green-soft) 0%, white 100%);
+    border: 1px solid var(--green);
+    border-radius: 14px;
+    padding: 24px;
+    margin: 20px 0;
+  }
+
+  .grievance-card .label {
+    display: inline-block;
+    color: var(--green-dark);
+    font-weight: 700;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+  }
+
+  .grievance-card .detail-row {
+    display: flex;
+    gap: 14px;
+    align-items: baseline;
+    padding: 6px 0;
+  }
+
+  .grievance-card .detail-row strong {
+    min-width: 80px;
+    color: var(--muted);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .grievance-card .detail-row span {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* ============ FOOTER ============ */
+  .footer {
+    background: var(--ink);
+    color: rgba(255, 255, 255, 0.75);
+    padding: 60px 0 30px;
+    font-size: 0.92rem;
+  }
+
+  .footer .container { max-width: 1200px; }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+
+  .footer-brand sup {
+    font-size: 0.5em;
+    margin-left: 2px;
+    color: rgba(255, 255, 255, 0.55);
+    font-weight: 500;
+  }
+
+  .footer-brand img { width: 38px; height: 38px; border-radius: 9px; }
+
+  .footer-tagline { color: rgba(255, 255, 255, 0.6); font-size: 0.92rem; margin-bottom: 18px; }
+
+  .footer h4 {
+    color: white;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 0.92rem;
+    margin-bottom: 14px;
+    letter-spacing: 0.02em;
+  }
+
+  .footer ul { list-style: none; padding: 0; }
+  .footer li { margin-bottom: 9px; padding: 0; }
+  .footer li::before { display: none; }
+
+  .footer a, .footer .email-copy {
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+
+  .footer a:hover, .footer .email-copy:hover { color: var(--yellow); text-decoration: none; }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 0.84rem;
+  }
+
+  /* Toast */
+  .copy-toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--ink);
+    color: white;
+    padding: 12px 22px;
+    border-radius: 100px;
+    font-size: 0.92rem;
+    font-weight: 500;
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    transition: transform 0.3s, opacity 0.3s;
+    z-index: 1000;
+    pointer-events: none;
+  }
+
+  .copy-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  /* Responsive */
+  @media (max-width: 720px) {
+    .menu-toggle { display: block; }
+    .nav-links { display: none; }
+    .nav-links.open {
+      display: flex;
+      position: absolute;
+      top: 100%;
+      left: 0; right: 0;
+      flex-direction: column;
+      background: white;
+      padding: 22px 24px;
+      gap: 18px;
+      align-items: flex-start;
+      border-bottom: 1px solid var(--line);
+      box-shadow: var(--shadow-sm);
+    }
+    .nav-links.open .nav-cta { align-self: stretch; text-align: center; }
+    .toc { padding: 22px; }
+    .toc-grid { grid-template-columns: 1fr; gap: 4px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .footer-grid > div:first-child { grid-column: 1 / -1; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+    .page-hero { padding: 50px 0 30px; }
+    section.policy h2 { font-size: 1.35rem; flex-direction: row; flex-wrap: wrap; }
+    .grievance-card .detail-row { flex-direction: column; gap: 2px; padding: 8px 0; }
+    .grievance-card .detail-row strong { min-width: 0; }
+    .intro { padding: 18px 20px; font-size: 0.98rem; }
+  }
 </style>
 </head>
 <body>
 
-<img src="https://handsapp.in/feature-graphic-1024x500.png" alt="HandsApp Messenger">
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <img src="play_store_icon_512.png" alt="HandsApp logo">
+      <span>HandsApp<sup>™</sup></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="privacy-policy.html">Privacy</a>
+      <a class="nav-cta" href="https://play.google.com/store/apps/details?id=com.handsapp.messenger" target="_blank" rel="noopener">Download</a>
+    </div>
+  </div>
+</nav>
 
-<h1>Privacy Policy</h1>
-<p class="effective">Effective Date: May 7, 2026</p>
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero">
+  <div class="icon-circle">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+    </svg>
+  </div>
+  <h1>Privacy <span class="accent">Policy</span></h1>
+  <p class="subtitle">How we collect, use, and protect your information at HandsApp Messenger.</p>
+  <div class="effective-badge">Effective Date: May 7, 2026</div>
+</section>
 
-<p>HandsApp Pvt Ltd ("HandsApp", "we", "us", or "our") operates the HandsApp Messenger mobile application. This Privacy Policy explains how we collect, use, and protect your information.</p>
+<!-- ============ MAIN CONTENT ============ -->
+<main>
+  <div class="container">
 
-<h2>1. Information We Collect</h2>
-<p>When you use HandsApp Messenger, we collect the following information:</p>
-<ul>
-  <li><strong>Phone Number:</strong> Used for account registration and verification via OTP.</li>
-  <li><strong>Profile Information:</strong> Your display name, profile photos, and about text that you choose to provide.</li>
-  <li><strong>Contacts:</strong> With your permission, we access your phone contacts to help you find other HandsApp users. Contact data is used only for this purpose.</li>
-  <li><strong>Messages &amp; Media:</strong> Text messages, photos, videos, voice messages, and files you send through the app are stored on Firebase servers to enable message delivery.</li>
-  <li><strong>Status Updates:</strong> Photos, videos, and text you share as status updates, which automatically expire after 24 hours.</li>
-  <li><strong>Device Information:</strong> Device tokens for push notifications.</li>
-  <li><strong>Crash &amp; Diagnostic Data:</strong> When the app crashes or encounters an error, we automatically collect crash reports including device model, operating system version, app version, and a stack trace. This data is processed by Firebase Crashlytics to help us identify and fix bugs. It does not include your messages, contacts, or other personal information.</li>
-</ul>
+    <p class="intro">
+      HandsApp Pvt Ltd ("HandsApp", "we", "us", or "our") operates the HandsApp Messenger mobile application. This Privacy Policy explains how we collect, use, and protect your information.
+    </p>
 
-<h2>2. How We Use Your Information</h2>
-<p>We use your information to:</p>
-<ul>
-  <li>Provide and maintain the messaging service</li>
-  <li>Verify your identity through phone number authentication</li>
-  <li>Deliver messages and media to intended recipients</li>
-  <li>Send push notifications for new messages</li>
-  <li>Show online status and last seen information (based on your privacy settings)</li>
-  <li>Enable group chats and event features</li>
-  <li>Diagnose crashes and improve app stability</li>
-</ul>
+    <!-- TOC -->
+    <div class="toc">
+      <div class="toc-title">Table of Contents</div>
+      <div class="toc-grid">
+        <a href="#sec-1"><span class="toc-num">1</span>Information We Collect</a>
+        <a href="#sec-2"><span class="toc-num">2</span>How We Use Your Information</a>
+        <a href="#sec-3"><span class="toc-num">3</span>Data Storage &amp; Security</a>
+        <a href="#sec-4"><span class="toc-num">4</span>Data Sharing</a>
+        <a href="#sec-5"><span class="toc-num">5</span>Your Privacy Controls</a>
+        <a href="#sec-6"><span class="toc-num">6</span>Data Retention &amp; Deletion</a>
+        <a href="#sec-7"><span class="toc-num">7</span>Your Rights</a>
+        <a href="#sec-8"><span class="toc-num">8</span>Children's Privacy</a>
+        <a href="#sec-9"><span class="toc-num">9</span>Changes to This Policy</a>
+        <a href="#sec-10"><span class="toc-num">10</span>Grievance Officer</a>
+        <a href="#sec-11"><span class="toc-num">11</span>Contact Us</a>
+      </div>
+    </div>
 
-<h2>3. Data Storage &amp; Security</h2>
-<p>Your data is stored on Google Firebase servers with industry-standard security measures. Data in transit is encrypted using TLS, and data at rest is encrypted by Google Firebase. We use Firebase Authentication for secure login, Firebase Firestore for message storage, Firebase Cloud Storage for media files, and Firebase Crashlytics for crash diagnostics. Your app passcode (if enabled) is stored locally on your device using Android Keystore-backed encryption.</p>
+    <!-- Section 1 -->
+    <section class="policy" id="sec-1">
+      <h2><span class="num">01</span>Information We Collect</h2>
+      <p>When you use HandsApp Messenger, we collect the following information:</p>
+      <ul>
+        <li><strong>Phone Number:</strong> Used for account registration and verification via OTP.</li>
+        <li><strong>Profile Information:</strong> Your display name, profile photos, and about text that you choose to provide.</li>
+        <li><strong>Contacts:</strong> With your permission, we access your phone contacts to help you find other HandsApp users. Contact data is used only for this purpose.</li>
+        <li><strong>Messages &amp; Media:</strong> Text messages, photos, videos, voice messages, and files you send through the app are stored on Firebase servers to enable message delivery.</li>
+        <li><strong>Status Updates:</strong> Photos, videos, and text you share as status updates, which automatically expire after 24 hours.</li>
+        <li><strong>Device Information:</strong> Device tokens for push notifications.</li>
+        <li><strong>Crash &amp; Diagnostic Data:</strong> When the app crashes or encounters an error, we automatically collect crash reports including device model, operating system version, app version, and a stack trace. This data is processed by Firebase Crashlytics to help us identify and fix bugs. It does not include your messages, contacts, or other personal information.</li>
+      </ul>
+    </section>
 
-<h2>4. Data Sharing</h2>
-<p>We do not sell your personal information, and we do not share it with third parties for advertising or marketing purposes. Your data is shared only as follows:</p>
-<ul>
-  <li><strong>Other Users:</strong> Your profile information and messages are visible to your contacts and group members as intended by the app's functionality.</li>
-  <li><strong>Service Providers (Data Processors):</strong> Google Firebase processes data on our behalf to provide infrastructure services (authentication, storage, messaging, crash reporting). Firebase processes data in accordance with Google's data processing terms.</li>
-  <li><strong>Legal Requirements:</strong> We may disclose information if required by law, court order, or to protect the rights and safety of users.</li>
-</ul>
+    <!-- Section 2 -->
+    <section class="policy" id="sec-2">
+      <h2><span class="num">02</span>How We Use Your Information</h2>
+      <p>We use your information to:</p>
+      <ul>
+        <li>Provide and maintain the messaging service</li>
+        <li>Verify your identity through phone number authentication</li>
+        <li>Deliver messages and media to intended recipients</li>
+        <li>Send push notifications for new messages</li>
+        <li>Show online status and last seen information (based on your privacy settings)</li>
+        <li>Enable group chats and event features</li>
+        <li>Diagnose crashes and improve app stability</li>
+      </ul>
+    </section>
 
-<h2>5. Your Privacy Controls</h2>
-<p>HandsApp gives you control over your privacy:</p>
-<ul>
-  <li><strong>Last Seen:</strong> Choose who can see your last seen status (Everyone, My Contacts, Nobody).</li>
-  <li><strong>Profile Photo:</strong> Control who can see your profile photo.</li>
-  <li><strong>Status:</strong> Control who can see your status updates.</li>
-  <li><strong>Read Receipts:</strong> Toggle read receipts on or off.</li>
-  <li><strong>Blocked Contacts:</strong> Block users to prevent them from contacting you.</li>
-  <li><strong>App Lock:</strong> Set a passcode to prevent unauthorised access on your device.</li>
-</ul>
+    <!-- Section 3 -->
+    <section class="policy" id="sec-3">
+      <h2><span class="num">03</span>Data Storage &amp; Security</h2>
+      <p>Your data is stored on Google Firebase servers with industry-standard security measures. Data in transit is encrypted using TLS, and data at rest is encrypted by Google Firebase. We use Firebase Authentication for secure login, Firebase Firestore for message storage, Firebase Cloud Storage for media files, and Firebase Crashlytics for crash diagnostics. Your app passcode (if enabled) is stored locally on your device using Android Keystore-backed encryption.</p>
+    </section>
 
-<h2>6. Data Retention &amp; Deletion</h2>
-<p>Messages and media are retained as long as your account is active. Status updates are automatically deleted after 24 hours. Crash diagnostic data is retained for up to 90 days by Firebase. You can delete individual messages or clear entire chat histories at any time from within the app.</p>
+    <!-- Section 4 -->
+    <section class="policy" id="sec-4">
+      <h2><span class="num">04</span>Data Sharing</h2>
+      <p>We do not sell your personal information, and we do not share it with third parties for advertising or marketing purposes. Your data is shared only as follows:</p>
+      <ul>
+        <li><strong>Other Users:</strong> Your profile information and messages are visible to your contacts and group members as intended by the app's functionality.</li>
+        <li><strong>Service Providers (Data Processors):</strong> Google Firebase processes data on our behalf to provide infrastructure services (authentication, storage, messaging, crash reporting). Firebase processes data in accordance with Google's data processing terms.</li>
+        <li><strong>Legal Requirements:</strong> We may disclose information if required by law, court order, or to protect the rights and safety of users.</li>
+      </ul>
+    </section>
 
-<p>You can permanently delete your HandsApp account at any time:</p>
-<ul>
-  <li><strong>In the app:</strong> Open Settings &rarr; scroll to "Account" &rarr; tap "Delete My Account"</li>
-  <li><strong>By email:</strong> Send a request from your registered email address to <a href="mailto:support@handsapp.in">support@handsapp.in</a></li>
-</ul>
-<p>Account deletion permanently removes your profile, photos, friend connections, status posts, and account record. Messages you sent in chats may remain visible to other participants but will be attributed to a deleted user.</p>
+    <!-- Section 5 -->
+    <section class="policy" id="sec-5">
+      <h2><span class="num">05</span>Your Privacy Controls</h2>
+      <p>HandsApp gives you control over your privacy:</p>
+      <ul>
+        <li><strong>Last Seen:</strong> Choose who can see your last seen status (Everyone, My Contacts, Nobody).</li>
+        <li><strong>Profile Photo:</strong> Control who can see your profile photo.</li>
+        <li><strong>Status:</strong> Control who can see your status updates.</li>
+        <li><strong>Read Receipts:</strong> Toggle read receipts on or off.</li>
+        <li><strong>Blocked Contacts:</strong> Block users to prevent them from contacting you.</li>
+        <li><strong>App Lock:</strong> Set a passcode to prevent unauthorised access on your device.</li>
+      </ul>
+    </section>
 
-<h2>7. Your Rights</h2>
-<p>Under the Digital Personal Data Protection Act, 2023 (India) and applicable data protection laws, you have the right to:</p>
-<ul>
-  <li>Access the personal data we hold about you</li>
-  <li>Correct any inaccurate or incomplete data</li>
-  <li>Request deletion of your account and associated data</li>
-  <li>Withdraw consent for data processing (note: doing so may prevent the app from functioning)</li>
-  <li>Lodge a complaint with our Grievance Officer (see Section 10) or with the Data Protection Board of India</li>
-</ul>
+    <!-- Section 6 -->
+    <section class="policy" id="sec-6">
+      <h2><span class="num">06</span>Data Retention &amp; Deletion</h2>
+      <p>Messages and media are retained as long as your account is active. Status updates are automatically deleted after 24 hours. Crash diagnostic data is retained for up to 90 days by Firebase. You can delete individual messages or clear entire chat histories at any time from within the app.</p>
+      <p>You can permanently delete your HandsApp account at any time:</p>
+      <ul>
+        <li><strong>In the app:</strong> Open Settings → scroll to "Account" → tap "Delete My Account"</li>
+        <li><strong>By email:</strong> Send a request from your registered email address to <a href="mailto:support@handsapp.in">support@handsapp.in</a></li>
+      </ul>
+      <p>Account deletion permanently removes your profile, photos, friend connections, status posts, and account record. Messages you sent in chats may remain visible to other participants but will be attributed to a deleted user.</p>
+    </section>
 
-<h2>8. Children's Privacy</h2>
-<p>HandsApp Messenger is not intended for users under the age of 18. We do not knowingly collect personal information from minors. If we learn that we have collected information from a person under 18, we will delete it promptly.</p>
+    <!-- Section 7 -->
+    <section class="policy" id="sec-7">
+      <h2><span class="num">07</span>Your Rights</h2>
+      <p>Under the Digital Personal Data Protection Act, 2023 (India) and applicable data protection laws, you have the right to:</p>
+      <ul>
+        <li>Access the personal data we hold about you</li>
+        <li>Correct any inaccurate or incomplete data</li>
+        <li>Request deletion of your account and associated data</li>
+        <li>Withdraw consent for data processing (note: doing so may prevent the app from functioning)</li>
+        <li>Lodge a complaint with our Grievance Officer (see Section 10) or with the Data Protection Board of India</li>
+      </ul>
+    </section>
 
-<h2>9. Changes to This Policy</h2>
-<p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new policy within the app and updating the Effective Date above. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
+    <!-- Section 8 -->
+    <section class="policy" id="sec-8">
+      <h2><span class="num">08</span>Children's Privacy</h2>
+      <p>HandsApp Messenger is not intended for users under the age of 18. We do not knowingly collect personal information from minors. If we learn that we have collected information from a person under 18, we will delete it promptly.</p>
+    </section>
 
-<h2>10. Grievance Officer</h2>
-<p>In accordance with the Information Technology (Intermediary Guidelines and Digital Media Ethics Code) Rules, 2021 and the Digital Personal Data Protection Act, 2023, our Grievance Officer can be contacted at:</p>
-<ul>
-  <li><strong>Name:</strong> S K Jaiswal</li>
-  <li><strong>Email:</strong> <a href="mailto:grievance@handsapp.in">grievance@handsapp.in</a></li>
-  <li><strong>Address:</strong> HandsApp Pvt Ltd, C-14 , Pandav Nagar, Delhi - 110092, India</li>
-</ul>
-<p>We will acknowledge complaints within 24 hours and resolve them within 15 days as required by Indian law.</p>
+    <!-- Section 9 -->
+    <section class="policy" id="sec-9">
+      <h2><span class="num">09</span>Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new policy within the app and updating the Effective Date above. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
+    </section>
 
-<h2>11. Contact Us</h2>
-<p>If you have questions about this Privacy Policy, please contact us at:</p>
-<ul>
-  <li><strong>Email:</strong> <a href="mailto:support@handsapp.in">support@handsapp.in</a></li>
-  <li><strong>Company:</strong> HandsApp Pvt Ltd, India</li>
-</ul>
+    <!-- Section 10 -->
+    <section class="policy" id="sec-10">
+      <h2><span class="num">10</span>Grievance Officer</h2>
+      <p>In accordance with the Information Technology (Intermediary Guidelines and Digital Media Ethics Code) Rules, 2021 and the Digital Personal Data Protection Act, 2023, our Grievance Officer can be contacted at:</p>
+      <div class="grievance-card">
+        <span class="label">Grievance Officer</span>
+        <div class="detail-row"><strong>Name:</strong><span>S K Jaiswal</span></div>
+        <div class="detail-row"><strong>Email:</strong><span><a href="mailto:grievance@handsapp.in">grievance@handsapp.in</a></span></div>
+        <div class="detail-row"><strong>Address:</strong><span>HandsApp Pvt Ltd, C-14, Pandav Nagar, Delhi - 110092, India</span></div>
+      </div>
+      <p>We will acknowledge complaints within 24 hours and resolve them within 15 days as required by Indian law.</p>
+    </section>
 
-<div class="footer">
-  &copy; 2026 HandsApp Pvt Ltd. All rights reserved.
-</div>
+    <!-- Section 11 -->
+    <section class="policy" id="sec-11">
+      <h2><span class="num">11</span>Contact Us</h2>
+      <p>If you have questions about this Privacy Policy, please contact us at:</p>
+      <ul>
+        <li><strong>Email:</strong> <a href="mailto:support@handsapp.in">support@handsapp.in</a></li>
+        <li><strong>Company:</strong> HandsApp Pvt Ltd, India</li>
+      </ul>
+    </section>
+
+  </div>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="play_store_icon_512.png" alt="HandsApp">
+          <span>HandsApp<sup>™</sup></span>
+        </div>
+        <p class="footer-tagline">Connect. Share. Together.<br>Private messaging, made in India.</p>
+      </div>
+
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="index.html#features">Features</a></li>
+          <li><a href="index.html#why">Why HandsApp</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.handsapp.messenger" target="_blank" rel="noopener">Google Play</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><span class="email-copy" data-email="support@handsapp.in">support@handsapp.in</span></li>
+          <li><span class="email-copy" data-email="grievance@handsapp.in">grievance@handsapp.in</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 HandsApp Pvt. Ltd. All rights reserved.</div>
+      <div>C-14, Third Floor, C-Block, Pandav Nagar, Delhi - 110092, India</div>
+    </div>
+  </div>
+</footer>
+
+<div class="copy-toast" id="copyToast">Email copied!</div>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+
+  document.querySelectorAll('.email-copy').forEach(el => {
+    el.addEventListener('click', function() {
+      const email = this.getAttribute('data-email');
+      const fallback = () => {
+        const ta = document.createElement('textarea');
+        ta.value = email;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+      };
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(email).then(() => showToast('Copied: ' + email)).catch(() => { fallback(); showToast('Copied: ' + email); });
+      } else { fallback(); showToast('Copied: ' + email); }
+    });
+  });
+
+  function showToast(msg) {
+    const t = document.getElementById('copyToast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2200);
+  }
+</script>
 
 </body>
 </html>
