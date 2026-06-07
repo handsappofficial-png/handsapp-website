@@ -819,6 +819,103 @@
     .hero-ctas { flex-direction: column; align-items: stretch; }
     .btn { justify-content: center; }
   }
+
+  /* ============ HERO PHONE CAROUSEL ============ */
+  .track{display:flex;width:600%;height:100%;transition:transform .6s cubic-bezier(.7,0,.2,1);}
+  .panel{width:16.6667%;height:100%;flex:none;position:relative;display:flex;flex-direction:column;background:#fff;}
+  .tick-badge,.lock-badge{transition:opacity .4s ease;}
+  .phone-dots{display:flex;gap:6px;justify-content:center;margin-top:18px;}
+  .phone-dots i{width:7px;height:7px;border-radius:50%;background:#cfd6dd;transition:all .3s;}
+  .phone-dots i.on{background:#0F7D5A;width:18px;border-radius:4px;}
+
+  /* shared screen header */
+  .scr-head{display:flex;align-items:center;justify-content:space-between;padding:18px 16px 12px;}
+  .scr-head .ttl{font-size:21px;font-weight:800;color:#1f2429;letter-spacing:-.3px;}
+  .scr-head .acts{display:flex;gap:14px;color:#8b94a0;}
+  .sec{font-size:11px;font-weight:700;color:#8b94a0;padding:12px 16px 4px;text-transform:uppercase;letter-spacing:.6px;}
+  .list{flex:1;overflow:hidden;}
+
+  /* chat */
+  .chat-header{display:flex;align-items:center;gap:10px;padding:14px 14px 12px;background:#fff;border-bottom:1px solid #eef0f2;}
+  .ic{color:#8b94a0;display:flex;}
+  .avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#14A06E,#0F7D5A);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;}
+  .who{flex:1;line-height:1.2;}
+  .who .name{font-weight:700;font-size:15px;color:#1f2429;}
+  .who .status{font-size:11.5px;color:#14A06E;min-height:14px;}
+  .icons{display:flex;gap:14px;color:#8b94a0;}
+  .chat-body{flex:1;padding:14px 12px;overflow:hidden;display:flex;flex-direction:column;gap:8px;background:#fff;}
+  .day{align-self:center;background:#eef0f2;color:#6b7280;font-size:10.5px;padding:3px 10px;border-radius:10px;margin-bottom:4px;}
+  .msg{max-width:78%;padding:8px 12px;border-radius:16px;font-size:13.5px;line-height:1.35;opacity:0;transform:translateY(10px) scale(.96);transition:opacity .35s ease,transform .38s cubic-bezier(.2,.8,.2,1);}
+  .msg.show{opacity:1;transform:none;}
+  .msg.them{align-self:flex-start;background:#F0F1F3;color:#1f2429;border-bottom-left-radius:5px;}
+  .msg.me{align-self:flex-end;background:#0F7D5A;color:#fff;border-bottom-right-radius:5px;}
+  .msg .time{font-size:11px;margin-left:6px;white-space:nowrap;color:#FFD60A;font-weight:700;letter-spacing:-1px;}
+  .typing{align-self:flex-start;background:#F0F1F3;padding:11px 14px;border-radius:16px;border-bottom-left-radius:5px;display:flex;gap:4px;}
+  .typing span{width:6px;height:6px;border-radius:50%;background:#9aa3ad;animation:blink 1.2s infinite ease-in-out;}
+  .typing span:nth-child(2){animation-delay:.2s;}.typing span:nth-child(3){animation-delay:.4s;}
+  @keyframes blink{0%,80%,100%{transform:scale(.7);opacity:.5;}40%{transform:scale(1);opacity:1;}}
+  .chat-input{display:flex;align-items:center;gap:9px;padding:10px 12px;border-top:1px solid #eef0f2;background:#fff;}
+  .chat-input .field{flex:1;background:#f1f2f4;border-radius:20px;padding:9px 14px;color:#9aa3ad;font-size:13px;}
+  .chat-input .mic{width:34px;height:34px;border-radius:50%;background:#0F7D5A;color:#fff;display:flex;align-items:center;justify-content:center;flex:none;}
+
+  /* status */
+  .srow{display:flex;align-items:center;gap:13px;padding:9px 16px;}
+  .ring{width:52px;height:52px;border-radius:50%;padding:2.5px;flex:none;background:conic-gradient(from 200deg,#14A06E,#6fe0bd,#0F7D5A,#14A06E);}
+  .ring.viewed{background:#d7dde3;}
+  .ring .av{width:100%;height:100%;border-radius:50%;border:2.5px solid #fff;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:16px;}
+  .me-status{position:relative;}
+  .me-status .plus{position:absolute;right:-1px;bottom:-1px;width:19px;height:19px;border-radius:50%;background:#0F7D5A;border:2.5px solid #fff;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;line-height:1;}
+  .srow .meta{flex:1;}
+  .srow .meta .nm{font-weight:600;font-size:14.5px;color:#1f2429;}
+  .srow .meta .tm{font-size:12px;color:#8b94a0;margin-top:1px;}
+
+  /* channels */
+  .search{margin:2px 16px 6px;background:#f1f2f4;border-radius:14px;padding:10px 14px;color:#9aa3ad;font-size:13px;display:flex;align-items:center;gap:8px;}
+  .crow{display:flex;align-items:center;gap:12px;padding:11px 16px;}
+  .cav{width:46px;height:46px;border-radius:14px;flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:18px;}
+  .crow .meta{flex:1;min-width:0;}
+  .crow .meta .nm{font-weight:700;font-size:14.5px;color:#1f2429;}
+  .crow .meta .ds{font-size:11.5px;color:#8b94a0;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .follow{font-size:12px;font-weight:700;padding:6px 15px;border-radius:20px;background:#0F7D5A;color:#fff;border:none;flex:none;}
+  .follow.on{background:#fff;color:#0F7D5A;border:1.5px solid #0F7D5A;}
+
+  /* groups */
+  .grow{display:flex;align-items:center;gap:12px;padding:11px 16px;}
+  .gav{width:48px;height:48px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:17px;}
+  .grow .meta{flex:1;min-width:0;}
+  .grow .top{display:flex;justify-content:space-between;align-items:center;}
+  .grow .nm{font-weight:700;font-size:14.5px;color:#1f2429;}
+  .grow .tm{font-size:11px;color:#8b94a0;}
+  .grow .last{font-size:12.5px;color:#8b94a0;margin-top:2px;display:flex;align-items:center;gap:8px;}
+  .grow .last .txt{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .badge{background:#0F7D5A;color:#fff;font-size:10.5px;font-weight:700;min-width:18px;height:18px;border-radius:9px;display:flex;align-items:center;justify-content:center;padding:0 5px;flex:none;}
+
+  /* events */
+  .evt{display:flex;gap:12px;align-items:center;margin:9px 16px;padding:12px;border:1px solid #eef0f2;border-radius:14px;}
+  .evt .date{width:50px;height:54px;border-radius:12px;background:#E2F3EA;color:#0F7D5A;display:flex;flex-direction:column;align-items:center;justify-content:center;flex:none;}
+  .evt .date .d{font-size:19px;font-weight:800;line-height:1;}
+  .evt .date .mo{font-size:10px;font-weight:700;text-transform:uppercase;margin-top:2px;}
+  .evt .info{flex:1;min-width:0;}
+  .evt .info .nm{font-weight:700;font-size:14px;color:#1f2429;}
+  .evt .info .dt{font-size:11.5px;color:#8b94a0;margin-top:2px;}
+  .evt .info .who2{font-size:11px;color:#0F7D5A;margin-top:3px;font-weight:600;}
+  .rsvp{font-size:11.5px;font-weight:700;padding:6px 13px;border-radius:18px;background:#0F7D5A;color:#fff;border:none;flex:none;}
+  .rsvp.on{background:#E2F3EA;color:#0F7D5A;}
+
+  /* profile */
+  .prof{flex:1;overflow:hidden;}
+  .prof-top{display:flex;flex-direction:column;align-items:center;padding:18px 16px 14px;}
+  .prof-av{width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,#14A06E,#0F7D5A);color:#fff;display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:700;box-shadow:0 8px 20px -6px rgba(15,125,90,.5);}
+  .prof-name{font-size:18px;font-weight:800;color:#1f2429;margin-top:12px;}
+  .prof-phone{font-size:13px;color:#8b94a0;margin-top:2px;}
+  .prof-emoji{margin-top:9px;background:#F1F2F4;border-radius:18px;padding:5px 14px;font-size:16px;letter-spacing:4px;}
+  .prow{display:flex;align-items:center;gap:14px;padding:13px 18px;border-top:1px solid #f1f2f4;}
+  .prow .pi{color:#0F7D5A;display:flex;}
+  .prow .pt{flex:1;}
+  .prow .pt .a{font-size:14px;font-weight:600;color:#1f2429;}
+  .prow .pt .b{font-size:11.5px;color:#8b94a0;margin-top:1px;}
+
+  @media (prefers-reduced-motion:reduce){ .phone{animation:none;} .track{transition:none;} .msg{transition:none;} }
 </style>
 </head>
 <body>
@@ -878,14 +975,137 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
           <div class="lock-badge-text">
             <strong>Private</strong>
-            <span>End-to-end</span>
+            <span>&amp; secure</span>
           </div>
         </div>
         <div class="phone">
           <div class="phone-screen">
-            <img src="handsapp-chat.jpg" alt="HandsApp chat screen with bold yellow read receipt">
+            <div class="track" id="track">
+
+            <!-- ===== SCREEN 1: CHAT ===== -->
+            <div class="panel">
+              <div class="chat-header">
+                <span class="ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></span>
+                <div class="avatar">B</div>
+                <div class="who"><div class="name">Bookania</div><div class="status" id="hdrStatus">online</div></div>
+                <div class="icons">
+                  <span class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+                  <span class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg></span>
+                  <span class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><circle cx="12" cy="5" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="12" cy="19" r="1.6"/></svg></span>
+                </div>
+              </div>
+              <div class="chat-body" id="chatBody"><div class="day">Today</div></div>
+              <div class="chat-input">
+                <span class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg></span>
+                <div class="field">Message</div>
+                <span class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></span>
+                <span class="mic"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg></span>
+              </div>
+            </div>
+
+            <!-- ===== SCREEN 2: STATUS ===== -->
+            <div class="panel">
+              <div class="scr-head">
+                <div class="ttl">Status</div>
+                <div class="acts">
+                  <span class="ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+                  <span class="ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><circle cx="12" cy="5" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="12" cy="19" r="1.7"/></svg></span>
+                </div>
+              </div>
+              <div class="list">
+                <div class="srow">
+                  <div class="ring me-status" style="background:#e7ebef;">
+                    <div class="av" style="background:linear-gradient(135deg,#14A06E,#0F7D5A);">Me</div>
+                    <span class="plus">+</span>
+                  </div>
+                  <div class="meta"><div class="nm">My Status</div><div class="tm">Tap to add status update</div></div>
+                </div>
+                <div class="sec">Recent updates</div>
+                <div class="srow"><div class="ring"><div class="av" style="background:#3B82F6;">A</div></div><div class="meta"><div class="nm">Aarav S</div><div class="tm">5 minutes ago</div></div></div>
+                <div class="srow"><div class="ring"><div class="av" style="background:#F59E0B;">P</div></div><div class="meta"><div class="nm">Priya M</div><div class="tm">12 minutes ago</div></div></div>
+                <div class="srow"><div class="ring"><div class="av" style="background:#8B5CF6;">R</div></div><div class="meta"><div class="nm">Rohan K</div><div class="tm">28 minutes ago</div></div></div>
+                <div class="sec">Viewed</div>
+                <div class="srow"><div class="ring viewed"><div class="av" style="background:#14B8A6;">N</div></div><div class="meta"><div class="nm">Neha R</div><div class="tm">1 hour ago</div></div></div>
+              </div>
+            </div>
+
+            <!-- ===== SCREEN 3: CHANNELS ===== -->
+            <div class="panel">
+              <div class="scr-head">
+                <div class="ttl">Channels</div>
+                <div class="acts">
+                  <span class="ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><circle cx="12" cy="5" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="12" cy="19" r="1.7"/></svg></span>
+                </div>
+              </div>
+              <div class="search">
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                Search channels &amp; Market Place
+              </div>
+              <div class="list">
+                <div class="crow"><div class="cav" style="background:#2563EB;">T</div><div class="meta"><div class="nm">Tech Daily</div><div class="ds">Latest in tech · 12.4k followers</div></div><button class="follow">Follow</button></div>
+                <div class="crow"><div class="cav" style="background:#EA580C;">F</div><div class="meta"><div class="nm">Foodies India</div><div class="ds">Recipes &amp; reviews · 8.1k followers</div></div><button class="follow">Follow</button></div>
+                <div class="crow"><div class="cav" style="background:#0F7D5A;">T</div><div class="meta"><div class="nm">Travel Diaries</div><div class="ds">Wander more · 5.6k followers</div></div><button class="follow on">Following</button></div>
+                <div class="crow"><div class="cav" style="background:#7C3AED;">D</div><div class="meta"><div class="nm">Daily News</div><div class="ds">Top stories · 21k followers</div></div><button class="follow">Follow</button></div>
+              </div>
+            </div>
+
+            <!-- ===== SCREEN 4: GROUPS ===== -->
+            <div class="panel">
+              <div class="scr-head">
+                <div class="ttl">Groups</div>
+                <div class="acts">
+                  <span class="ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+                  <span class="ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><circle cx="12" cy="5" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="12" cy="19" r="1.7"/></svg></span>
+                </div>
+              </div>
+              <div class="list">
+                <div class="grow"><div class="gav" style="background:#0F7D5A;">F</div><div class="meta"><div class="top"><span class="nm">Family</span><span class="tm">12:40 pm</span></div><div class="last"><span class="txt">Mom: See you at dinner! 🍛</span><span class="badge">3</span></div></div></div>
+                <div class="grow"><div class="gav" style="background:#2563EB;">W</div><div class="meta"><div class="top"><span class="nm">Work Team</span><span class="tm">11:18 am</span></div><div class="last"><span class="txt">Rohan: Meeting at 3pm 📊</span><span class="badge">5</span></div></div></div>
+                <div class="grow"><div class="gav" style="background:#EA580C;">C</div><div class="meta"><div class="top"><span class="nm">College Buddies</span><span class="tm">Yesterday</span></div><div class="last"><span class="txt">Priya: 😂😂😂</span></div></div></div>
+                <div class="grow"><div class="gav" style="background:#7C3AED;">W</div><div class="meta"><div class="top"><span class="nm">Weekend Trip</span><span class="tm">Yesterday</span></div><div class="last"><span class="txt">You: Booked the cab ✅</span></div></div></div>
+              </div>
+            </div>
+
+            <!-- ===== SCREEN 5: EVENTS ===== -->
+            <div class="panel">
+              <div class="scr-head">
+                <div class="ttl">Events</div>
+                <div class="acts">
+                  <span class="ic"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+                </div>
+              </div>
+              <div class="list">
+                <div class="evt"><div class="date"><span class="d">18</span><span class="mo">Oct</span></div><div class="info"><div class="nm">Diwali Party 🪔</div><div class="dt">Sat, 8:00 PM · Pandav Nagar</div><div class="who2">12 going</div></div><button class="rsvp on">Going</button></div>
+                <div class="evt"><div class="date"><span class="d">24</span><span class="mo">Oct</span></div><div class="info"><div class="nm">Team Offsite</div><div class="dt">Fri, 10:00 AM · Gurgaon</div><div class="who2">8 going</div></div><button class="rsvp">RSVP</button></div>
+                <div class="evt"><div class="date"><span class="d">02</span><span class="mo">Nov</span></div><div class="info"><div class="nm">Birthday Bash 🎂</div><div class="dt">Sun, 6:00 PM · Connaught Place</div><div class="who2">5 going</div></div><button class="rsvp">RSVP</button></div>
+              </div>
+            </div>
+
+            <!-- ===== SCREEN 6: PROFILE ===== -->
+            <div class="panel">
+              <div class="scr-head">
+                <div class="ttl">Profile</div>
+                <div class="acts">
+                  <span class="ic"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></span>
+                </div>
+              </div>
+              <div class="prof">
+                <div class="prof-top">
+                  <div class="prof-av">S</div>
+                  <div class="prof-name">Shubham Kumar</div>
+                  <div class="prof-phone">+91 11111 11111</div>
+                  <div class="prof-emoji">🚀 🎯 ✨</div>
+                </div>
+                <div class="prow"><span class="pi"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></span><div class="pt"><div class="a">About</div><div class="b">Hey there! I'm using HandsApp</div></div></div>
+                <div class="prow"><span class="pi"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span><div class="pt"><div class="a">Privacy</div><div class="b">Last seen, profile photo, status</div></div></div>
+                <div class="prow"><span class="pi"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg></span><div class="pt"><div class="a">Personalize</div><div class="b">Themes, fonts, wallpaper</div></div></div>
+              </div>
+            </div>
+
+            </div>
           </div>
         </div>
+        <div class="phone-dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
       </div>
     </div>
   </div>
@@ -1064,6 +1284,7 @@
         <ul>
           <li><a href="about.html">About</a></li>
           <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="about.html#terms">Terms of Use</a></li>
         </ul>
       </div>
 
@@ -1120,6 +1341,58 @@
     t.classList.add('show');
     setTimeout(() => t.classList.remove('show'), 2200);
   }
+</script>
+
+<script>
+  /* hero phone carousel: animated chat (screen 1) + auto-rotating screens */
+  (function(){
+    const convo = [
+      {side:'them', text:'Hey 👋'},
+      {side:'me',   text:"Hey! What's up?"},
+      {side:'them', text:'Just moved to HandsApp 😄'},
+      {side:'me',   text:'Same — no ads is so nice!'},
+      {side:'them', text:'And it feels private 🔒'},
+      {side:'me',   text:'Love it 🙌'},
+    ];
+    const body = document.getElementById('chatBody');
+    const hdrStatus = document.getElementById('hdrStatus');
+    const track = document.getElementById('track');
+    if(!body || !track) return;
+    const wait = ms => new Promise(r => setTimeout(r, ms));
+    function addMessage(m){
+      const el = document.createElement('div');
+      el.className = 'msg ' + m.side;
+      el.innerHTML = m.text + (m.side === 'me' ? ' <span class="time">✓✓</span>' : '');
+      body.appendChild(el); body.scrollTop = body.scrollHeight;
+      requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('show')));
+    }
+    function showTyping(){ const t = document.createElement('div'); t.className='typing'; t.id='__t'; t.innerHTML='<span></span><span></span><span></span>'; body.appendChild(t); body.scrollTop = body.scrollHeight; }
+    function hideTyping(){ const t = document.getElementById('__t'); if(t) t.remove(); }
+    function clearChat(){ body.querySelectorAll('.msg,.typing').forEach(e => e.remove()); }
+    async function chatLoop(){
+      while(true){
+        clearChat(); await wait(700);
+        for(const m of convo){
+          if(m.side === 'them'){ if(hdrStatus) hdrStatus.textContent='typing…'; showTyping(); await wait(1100); hideTyping(); if(hdrStatus) hdrStatus.textContent='online'; }
+          else { await wait(650); }
+          addMessage(m); await wait(950);
+        }
+        await wait(2600);
+      }
+    }
+    chatLoop();
+
+    const dots = document.querySelectorAll('.phone-dots i');
+    const N = 6, dur = [8500,4000,4000,4000,4000,4000];
+    let cur = 0;
+    function go(i){
+      cur = i;
+      track.style.transform = 'translateX(' + (-i * (100 / N)) + '%)';
+      dots.forEach((d,k) => d.classList.toggle('on', k === i));
+    }
+    function loop(){ setTimeout(() => { go((cur + 1) % N); loop(); }, dur[cur]); }
+    go(0); loop();
+  })();
 </script>
 
 </body>
