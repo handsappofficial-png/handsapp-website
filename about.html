@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="About HandsApp — Private, ad-free messaging app made in India. Learn about features, latest updates, terms, and the team behind HandsApp.">
 <meta name="theme-color" content="#0F7D5A">
+<link rel="canonical" href="https://handsapp.in/about.html">
+<meta property="og:title" content="About HandsApp — Private & Secure Messaging">
+<meta property="og:description" content="About HandsApp — Private, ad-free messaging app made in India. Learn about features, latest updates, terms, and the team behind HandsApp.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://handsapp.in/about.html">
+<meta property="og:image" content="https://handsapp.in/play_store_icon_512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="About HandsApp — Private & Secure Messaging">
+<meta name="twitter:description" content="Private, ad-free messaging app made in India.">
+<meta name="twitter:image" content="https://handsapp.in/play_store_icon_512.png">
 <title>About HandsApp — Private & Secure Messaging</title>
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -881,8 +891,10 @@
   });
 
   document.querySelectorAll('.email-copy').forEach(el => {
-    el.addEventListener('click', function() {
-      const email = this.getAttribute('data-email');
+    el.setAttribute('role', 'button');
+    el.setAttribute('tabindex', '0');
+    const copyEmail = () => {
+      const email = el.getAttribute('data-email');
       const fallback = () => {
         const ta = document.createElement('textarea');
         ta.value = email;
@@ -894,7 +906,9 @@
       if (navigator.clipboard) {
         navigator.clipboard.writeText(email).then(() => showToast('Copied: ' + email)).catch(() => { fallback(); showToast('Copied: ' + email); });
       } else { fallback(); showToast('Copied: ' + email); }
-    });
+    };
+    el.addEventListener('click', copyEmail);
+    el.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); copyEmail(); } });
   });
 
   function showToast(msg) {

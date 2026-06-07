@@ -11,6 +11,11 @@
 <meta property="og:url" content="https://handsapp.in">
 <meta property="og:image" content="https://handsapp.in/handsapp-chat.jpg">
 <meta name="theme-color" content="#0F7D5A">
+<link rel="canonical" href="https://handsapp.in/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="HandsApp — Private & Secure Messaging">
+<meta name="twitter:description" content="Connect. Share. Together. Private messaging with full control over who can reach you. No ads, made in India.">
+<meta name="twitter:image" content="https://handsapp.in/handsapp-chat.jpg">
 <title>HandsApp — Private & Secure Messaging</title>
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1320,8 +1325,10 @@
 
   // Email copy
   document.querySelectorAll('.email-copy').forEach(el => {
-    el.addEventListener('click', function() {
-      const email = this.getAttribute('data-email');
+    el.setAttribute('role', 'button');
+    el.setAttribute('tabindex', '0');
+    const copyEmail = () => {
+      const email = el.getAttribute('data-email');
       const fallback = () => {
         const ta = document.createElement('textarea');
         ta.value = email;
@@ -1333,7 +1340,9 @@
       if (navigator.clipboard) {
         navigator.clipboard.writeText(email).then(() => showToast('Copied: ' + email)).catch(() => { fallback(); showToast('Copied: ' + email); });
       } else { fallback(); showToast('Copied: ' + email); }
-    });
+    };
+    el.addEventListener('click', copyEmail);
+    el.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); copyEmail(); } });
   });
 
   function showToast(msg) {
@@ -1381,18 +1390,48 @@
         await wait(2600);
       }
     }
-    chatLoop();
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function staticChat(){
+      clearChat();
+      convo.forEach(m => {
+        const el = document.createElement('div');
+        el.className = 'msg ' + m.side + ' show';
+        el.innerHTML = m.text + (m.side === 'me' ? ' <span class="time">✓✓</span>' : '');
+        body.appendChild(el);
+      });
+      if (hdrStatus) hdrStatus.textContent = 'online';
+    }
 
     const dots = document.querySelectorAll('.phone-dots i');
     const N = 6, dur = [8500,4000,4000,4000,4000,4000];
-    let cur = 0;
+    let cur = 0, timer = null, paused = false;
     function go(i){
       cur = i;
       track.style.transform = 'translateX(' + (-i * (100 / N)) + '%)';
       dots.forEach((d,k) => d.classList.toggle('on', k === i));
     }
-    function loop(){ setTimeout(() => { go((cur + 1) % N); loop(); }, dur[cur]); }
-    go(0); loop();
+    function schedule(){ clearTimeout(timer); timer = setTimeout(() => { if (!paused) go((cur + 1) % N); schedule(); }, dur[cur]); }
+
+    dots.forEach((d,k) => {
+      d.setAttribute('role', 'button');
+      d.setAttribute('tabindex', '0');
+      d.setAttribute('aria-label', 'Show screen ' + (k + 1));
+      d.style.cursor = 'pointer';
+      const jump = () => { go(k); schedule(); };
+      d.addEventListener('click', jump);
+      d.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); jump(); } });
+    });
+
+    const phoneEl = document.querySelector('.phone');
+    if (phoneEl) {
+      phoneEl.addEventListener('mouseenter', () => { paused = true; });
+      phoneEl.addEventListener('mouseleave', () => { paused = false; });
+    }
+
+    go(0);
+    if (reduce) { staticChat(); }
+    else { chatLoop(); schedule(); }
   })();
 </script>
 
