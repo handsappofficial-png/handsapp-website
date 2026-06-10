@@ -620,9 +620,30 @@
     }
     .page-hero-logo { width: 64px; height: 64px; }
   }
+
+  /* ===== polish: motion & interaction ===== */
+  html { scroll-behavior: smooth; }
+  .navbar { transition: box-shadow .3s ease, background .3s ease; }
+  .navbar.scrolled { box-shadow: 0 8px 28px -16px rgba(15, 27, 23, 0.28); }
+  .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s cubic-bezier(.2,.7,.2,1), transform .6s cubic-bezier(.2,.7,.2,1); }
+  .js .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .js .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  }
+
+  /* ===== aurora background (Option C) ===== */
+  body { background: #E6F3EC; position: relative; z-index: 0; }
+  .aurora { position: fixed; inset: 0; overflow: hidden; z-index: -1; pointer-events: none; }
+  .aurora .blob { position: absolute; border-radius: 50%; filter: blur(65px); }
+  .aurora .b1 { width: 420px; height: 420px; background: #12AB74; top: -120px; left: -90px; opacity: 0.62; }
+  .aurora .b2 { width: 360px; height: 360px; background: #FFB52E; top: -50px; right: -70px; opacity: 0.56; }
+  .aurora .b3 { width: 400px; height: 400px; background: #0A7C57; bottom: -170px; right: 18%; opacity: 0.56; }
+  .aurora .b4 { width: 300px; height: 300px; background: #12AB74; bottom: -130px; left: 8%; opacity: 0.4; }
 </style>
 </head>
 <body>
+  <div class="aurora" aria-hidden="true"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span><span class="blob b4"></span></div>
 
 <!-- ============ NAVBAR ============ -->
 <nav class="navbar">
@@ -921,6 +942,35 @@
     t.classList.add('show');
     setTimeout(() => t.classList.remove('show'), 2200);
   }
+</script>
+
+<script>
+  /* polish: nav shadow on scroll + scroll-reveal (safe, with fallbacks) */
+  (function(){
+    document.documentElement.classList.add('js');
+
+    var nav = document.querySelector('.navbar');
+    if (nav) {
+      var onScroll = function(){ nav.classList.toggle('scrolled', window.scrollY > 8); };
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+    }
+
+    var sel = '.section-head, .feature, .why, .step, .final-cta-inner, .card, .policy, .intro';
+    var items = Array.prototype.slice.call(document.querySelectorAll(sel));
+    items.forEach(function(el){ el.classList.add('reveal'); });
+
+    if ('IntersectionObserver' in window && items.length) {
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      items.forEach(function(el){ io.observe(el); });
+    } else {
+      items.forEach(function(el){ el.classList.add('in'); });
+    }
+  })();
 </script>
 
 </body>
