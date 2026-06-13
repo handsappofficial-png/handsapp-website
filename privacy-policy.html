@@ -197,8 +197,11 @@
   }
 
   .page-hero .subtitle .brand-highlight {
-    color: var(--green-dark);
-    font-weight: 700;
+    color: #FFDD77;
+    background: #0A5B43;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 6px;
     white-space: nowrap;
   }
 
@@ -293,25 +296,34 @@
   }
 
   section.policy {
-    padding: 30px 0;
-    scroll-margin-top: 80px;
-    border-bottom: 1px solid var(--line);
+    padding: 28px 30px;
+    scroll-margin-top: 92px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    margin-bottom: 18px;
+    overflow: hidden;
+    box-shadow: 0 12px 32px -22px rgba(15, 125, 90, 0.30);
   }
 
-  section.policy:last-of-type { border-bottom: none; }
+  section.policy:last-of-type { margin-bottom: 0; }
 
   section.policy h2 {
-    font-size: 1.55rem;
-    margin-bottom: 16px;
-    color: var(--ink);
+    font-size: 1.4rem;
+    margin: -28px -30px 22px;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #0F7D5A 0%, #0A5B43 100%);
+    color: #FFDD77;
     display: flex;
-    align-items: baseline;
-    gap: 12px;
+    align-items: center;
+    gap: 11px;
   }
+
+  section.policy h2 .sec-icon { width: 19px; height: 19px; color: #FFD36A; flex-shrink: 0; }
 
   section.policy h2 .num {
     font-family: 'Bricolage Grotesque', sans-serif;
-    color: var(--green);
+    color: #FFC94D;
     font-weight: 800;
     font-size: 0.85em;
     min-width: 30px;
@@ -396,7 +408,7 @@
 
   /* ============ FOOTER ============ */
   .footer {
-    background: var(--ink);
+    background: #0A3D2E;
     color: rgba(255, 255, 255, 0.75);
     padding: 60px 0 30px;
     font-size: 0.92rem;
@@ -512,8 +524,9 @@
     .footer-bottom { flex-direction: column; align-items: center; }
     .page-hero { padding: 50px 0 30px; }
     .page-hero .subtitle { white-space: normal; font-size: 1rem; }
-    .page-hero .subtitle .brand-highlight { white-space: normal; }
-    section.policy h2 { font-size: 1.35rem; flex-direction: row; flex-wrap: wrap; }
+    .page-hero .subtitle .brand-highlight { white-space: nowrap; }
+    section.policy { padding: 22px 20px; border-radius: 14px; }
+    section.policy h2 { font-size: 1.25rem; margin: -22px -20px 16px; padding: 13px 20px; flex-direction: row; flex-wrap: wrap; }
     .grievance-card .detail-row { flex-direction: column; gap: 2px; padding: 8px 0; }
     .grievance-card .detail-row strong { min-width: 0; }
     .intro { padding: 18px 20px; font-size: 0.98rem; }
@@ -531,7 +544,7 @@
   }
 
   /* ===== aurora background (Option C) ===== */
-  body { background: #CDEBD8; position: relative; z-index: 0; }
+  body { background: radial-gradient(720px circle at 85% -4%, #DCF3E7 0%, rgba(220,243,231,0) 55%), radial-gradient(640px circle at -4% 102%, #D2EFDD 0%, rgba(210,239,221,0) 52%), #CDEBD8; background-attachment: fixed; position: relative; z-index: 0; }
   .aurora { position: fixed; inset: 0; overflow: hidden; z-index: -1; pointer-events: none; display: none; }
   .aurora .blob { position: absolute; border-radius: 50%; filter: blur(65px); }
   .aurora .b1 { width: 420px; height: 420px; background: #12AB74; top: -120px; left: -90px; opacity: 0.62; }
@@ -603,7 +616,7 @@
 
     <!-- Section 1 -->
     <section class="policy" id="sec-1">
-      <h2><span class="num">01</span>Information We Collect</h2>
+      <h2><svg class="sec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"> <path d="M4 6a8 3 0 1 0 16 0a8 3 0 1 0 -16 0" /> <path d="M4 6v6a8 3 0 0 0 16 0v-6" /> <path d="M4 12v6a8 3 0 0 0 16 0v-6" /> </svg><span class="num">1.</span>Information We Collect</h2>
       <p>When you use HandsApp Messenger, we collect the following information:</p>
       <ul>
         <li><strong>Phone Number:</strong> Used for account registration and verification via OTP.</li>
@@ -618,7 +631,7 @@
 
     <!-- Section 2 -->
     <section class="policy" id="sec-2">
-      <h2><span class="num">02</span>How We Use Your Information</h2>
+      <h2><svg class="sec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"> <path d="M12 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> <path d="M4 6l8 0" /> <path d="M16 6l4 0" /> <path d="M6 12a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> <path d="M4 12l2 0" /> <path d="M10 12l10 0" /> <path d="M15 18a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /> <path d="M4 18l11 0" /> <path d="M19 18l1 0" /> </svg><span class="num">2.</span>How We Use Your Information</h2>
       <p>We use your information to:</p>
       <ul>
         <li>Provide and maintain the messaging service</li>
@@ -633,13 +646,13 @@
 
     <!-- Section 3 -->
     <section class="policy" id="sec-3">
-      <h2><span class="num">03</span>Data Storage &amp; Security</h2>
+      <h2><svg class="sec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"> <path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6" /> <path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" /> <path d="M8 11v-4a4 4 0 1 1 8 0v4" /> </svg><span class="num">3.</span>Data Storage &amp; Security</h2>
       <p>Your data is stored on Google Firebase servers with industry-standard security measures. Data in transit is encrypted using TLS, and data at rest is encrypted by Google Firebase. We use Firebase Authentication for secure login, Firebase Firestore for message storage, Firebase Cloud Storage for media files, and Firebase Crashlytics for crash diagnostics. Your app passcode (if enabled) is stored locally on your device using Android Keystore-backed encryption.</p>
     </section>
 
     <!-- Section 4 -->
     <section class="policy" id="sec-4">
-      <h2><span class="num">04</span>Data Sharing</h2>
+      <h2><svg class="sec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"> <path d="M3 12a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /> <path d="M15 6a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /> <path d="M15 18a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /> <path d="M8.7 10.7l6.6 -3.4" /> <path d="M8.7 13.3l6.6 3.4" /> </svg><span class="num">4.</span>Data Sharing</h2>
       <p>We do not sell your personal information, and we do not share it with third parties for advertising or marketing purposes. Your data is shared only as follows:</p>
       <ul>
         <li><strong>Other Users:</strong> Your profile information and messages are visible to your contacts and group members as intended by the app's functionality.</li>
@@ -650,7 +663,7 @@
 
     <!-- Section 5 -->
     <section class="policy" id="sec-5">
-      <h2><span class="num">05</span>Your Privacy Controls</h2>
+      <h2><svg class="sec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"> <path d="M11.46 20.846a12 12 0 0 1 -7.96 -14.846a12 12 0 0 0 8.5 -3a12 12 0 0 0 8.5 3a12 12 0 0 1 -.09 7.06" /> <path d="M15 19l2 2l4 -4" /> </svg><span class="num">5.</span>Your Privacy Controls</h2>
       <p>HandsApp gives you control over your privacy:</p>
       <ul>
         <li><strong>Last Seen:</strong> Choose who can see your last seen status (Everyone, My Contacts, Nobody).</li>
@@ -664,7 +677,7 @@
 
     <!-- Section 6 -->
     <section class="policy" id="sec-6">
-      <h2><span class="num">06</span>Data Retention &amp; Deletion</h2>
+      <h2><svg class="sec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"> <path d="M4 7l16 0" /> <path d="M10 11l0 6" /> <path d="M14 11l0 6" /> <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" /> <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /> </svg><span class="num">6.</span>Data Retention &amp; Deletion</h2>
       <p>Messages and media are retained as long as your account is active. Status updates are automatically deleted after 24 hours. Crash diagnostic data is retained for up to 90 days by Firebase. You can delete individual messages or clear entire chat histories at any time from within the app.</p>
       <p>You can permanently delete your HandsApp account at any time:</p>
       <ul>
@@ -676,7 +689,7 @@
 
     <!-- Section 7 -->
     <section class="policy" id="sec-7">
-      <h2><span class="num">07</span>Your Rights</h2>
+      <h2><svg class="sec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"> <path d="M7 20l10 0" /> <path d="M6 6l6 -1l6 1" /> <path d="M12 3l0 17" /> <path d="M9 12l-3 -6l-3 6a3 3 0 0 0 6 0" /> <path d="M21 12l-3 -6l-3 6a3 3 0 0 0 6 0" /> </svg><span class="num">7.</span>Your Rights</h2>
       <p>Under the Digital Personal Data Protection Act, 2023 (India) and applicable data protection laws, you have the right to:</p>
       <ul>
         <li>Access the personal data we hold about you</li>
@@ -689,19 +702,19 @@
 
     <!-- Section 8 -->
     <section class="policy" id="sec-8">
-      <h2><span class="num">08</span>Children's Privacy</h2>
+      <h2><svg class="sec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"> <path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /> <path d="M9 10l.01 0" /> <path d="M15 10l.01 0" /> <path d="M9.5 15a3.5 3.5 0 0 0 5 0" /> <path d="M12 3a2 2 0 0 0 0 4" /> </svg><span class="num">8.</span>Children's Privacy</h2>
       <p>HandsApp Messenger is not intended for users under the age of 18. We do not knowingly collect personal information from minors. If we learn that we have collected information from a person under 18, we will delete it promptly.</p>
     </section>
 
     <!-- Section 9 -->
     <section class="policy" id="sec-9">
-      <h2><span class="num">09</span>Changes to This Policy</h2>
+      <h2><svg class="sec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"> <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4" /> <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" /> </svg><span class="num">9.</span>Changes to This Policy</h2>
       <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new policy within the app and updating the Effective Date above. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
     </section>
 
     <!-- Section 10 -->
     <section class="policy" id="sec-10">
-      <h2><span class="num">10</span>Grievance Officer</h2>
+      <h2><svg class="sec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"> <path d="M4 14v-3a8 8 0 1 1 16 0v3" /> <path d="M18 19c0 1.657 -2.686 3 -6 3" /> <path d="M4 14a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-1a2 2 0 0 1 -2 -2v-3" /> <path d="M15 14a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-1a2 2 0 0 1 -2 -2v-3" /> </svg><span class="num">10.</span>Grievance Officer</h2>
       <p>In accordance with the Information Technology (Intermediary Guidelines and Digital Media Ethics Code) Rules, 2021 and the Digital Personal Data Protection Act, 2023, our Grievance Officer can be contacted at:</p>
       <div class="grievance-card">
         <span class="label">Grievance Officer</span>
@@ -714,7 +727,7 @@
 
     <!-- Section 11 -->
     <section class="policy" id="sec-11">
-      <h2><span class="num">11</span>Contact Us</h2>
+      <h2><svg class="sec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"> <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10" /> <path d="M3 7l9 6l9 -6" /> </svg><span class="num">11.</span>Contact Us</h2>
       <p>If you have questions about this Privacy Policy, please contact us at:</p>
       <ul>
         <li><strong>Email:</strong> <a href="mailto:support@handsapp.in">support@handsapp.in</a></li>
