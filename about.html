@@ -337,6 +337,23 @@
   .version-block:nth-child(2) .version-tag { background: var(--yellow); color: var(--ink); }
   .version-block:nth-child(3) .version-tag { background: var(--ink); color: white; }
 
+  /* Latest release — highlighted gold panel */
+  .version-block.latest {
+    background: linear-gradient(135deg, rgba(255,179,0,0.18) 0%, rgba(255,179,0,0.06) 100%);
+    border: 1px solid rgba(255,179,0,0.45);
+    border-left: 4px solid var(--yellow);
+    border-radius: 14px;
+    padding: 20px 22px;
+    box-shadow: 0 10px 28px -20px rgba(255,179,0,0.55);
+  }
+  .version-block.latest .version-tag {
+    background: var(--yellow);
+    color: #3D2B00;
+    box-shadow: 0 2px 8px -2px rgba(255,179,0,0.6);
+  }
+  .version-block.latest .version-label { color: #7A5200; }
+  .version-block.latest li::before { background: var(--yellow); }
+
   .version-label {
     font-family: 'Bricolage Grotesque', sans-serif;
     font-weight: 700;
@@ -715,7 +732,7 @@
       <span class="card-tag">Release notes</span>
       <h2>What's New</h2>
 
-      <div class="version-block">
+      <div class="version-block latest">
         <div class="version-header">
           <span class="version-tag">LATEST</span>
           <span class="version-label">Version 1.1.6</span>
