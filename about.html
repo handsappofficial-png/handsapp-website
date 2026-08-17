@@ -352,6 +352,48 @@
     box-shadow: 0 2px 8px -2px rgba(255,179,0,0.6);
   }
   .version-block.latest .version-label { color: #7A5200; }
+
+  /* Older releases collapse behind a toggle. Gated on .js so that with
+     JavaScript disabled every version stays visible. */
+  .older-toggle { display: none; }
+  .js .older-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 4px 0 22px;
+    padding: 9px 18px;
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    color: var(--green-dark);
+    font-family: inherit;
+    font-size: 0.86rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+  .js .older-toggle:hover { background: rgba(15,125,90,0.07); border-color: rgba(15,125,90,0.35); }
+  .older-toggle-chevron { transition: transform 0.2s ease; font-size: 0.9rem; }
+  .older-toggle[aria-expanded="true"] .older-toggle-chevron { transform: rotate(180deg); }
+  .js .older-versions { display: none; }
+  .js .older-versions.open { display: block; }
+
+  /* Next release — announced but not shipped yet */
+  .version-block.soon {
+    background: linear-gradient(135deg, rgba(55,138,221,0.13) 0%, rgba(55,138,221,0.04) 100%);
+    border: 1px dashed rgba(55,138,221,0.5);
+    border-left: 4px solid #378ADD;
+    border-radius: 14px;
+    padding: 20px 22px;
+  }
+  .version-block.soon .version-tag { background: #378ADD; color: #fff; }
+  .version-block.soon .version-label { color: #1E5FA8; }
+  .version-block.soon li::before { background: #378ADD; }
+  .version-block.soon .soon-note {
+    font-size: 0.82rem;
+    color: #1E5FA8;
+    margin-bottom: 10px;
+  }
   .version-block.latest li::before { background: var(--yellow); }
 
   .version-label {
@@ -735,6 +777,23 @@
       <span class="card-tag">Release notes</span>
       <h2>What's New</h2>
 
+      <div class="version-block soon">
+        <div class="version-header">
+          <span class="version-tag">COMING SOON</span>
+          <span class="version-label">Version 1.1.7</span>
+        </div>
+        <p class="soon-note">In development — not yet available on Google Play.</p>
+        <ul>
+          <li>Send documents — PDF, Word, Excel, PowerPoint and text files</li>
+          <li>Share contacts, one or several at a time, and save the ones you receive</li>
+          <li>Send audio files with a built-in player</li>
+          <li>Share to several chats and groups at once, from one searchable list</li>
+          <li>Shared map links now show as a location card</li>
+          <li>Bigger, clearer message reactions</li>
+          <li>Long-press to select and forward several messages together</li>
+        </ul>
+      </div>
+
       <div class="version-block latest">
         <div class="version-header">
           <span class="version-tag">LATEST</span>
@@ -754,6 +813,11 @@
         </ul>
       </div>
 
+      <button class="older-toggle" id="olderToggle" type="button" aria-expanded="false" aria-controls="olderVersions">
+        <span class="older-toggle-label">Show older versions</span>
+        <span class="older-toggle-chevron" aria-hidden="true">&#9662;</span>
+      </button>
+      <div class="older-versions" id="olderVersions">
       <div class="version-block">
         <div class="version-header">
           <span class="version-tag">v1.1.5</span>
@@ -834,6 +898,7 @@
           <li>Improved file downloads to local storage</li>
           <li>Firebase security rules for data protection</li>
         </ul>
+      </div>
       </div>
     </article>
 
@@ -988,6 +1053,19 @@
   /* polish: nav shadow on scroll + scroll-reveal (safe, with fallbacks) */
   (function(){
     document.documentElement.classList.add('js');
+
+    // Older release notes: collapsed by default, expandable.
+    (function () {
+      var toggle = document.getElementById('olderToggle');
+      var panel = document.getElementById('olderVersions');
+      if (!toggle || !panel) return;
+      toggle.addEventListener('click', function () {
+        var open = panel.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.querySelector('.older-toggle-label').textContent =
+          open ? 'Hide older versions' : 'Show older versions';
+      });
+    })();
 
     var nav = document.querySelector('.navbar');
     if (nav) {
